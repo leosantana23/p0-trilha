@@ -15,7 +15,7 @@
   var y = new Date().getFullYear();
 
   /* ---------- 2. rolagem: um único ouvinte, uma atualização por quadro ---------- */
-  var header = $('#header'), progress = $('#progress'), toTop = $('#toTop'), hero = $('.hero');
+  var header = $('#header'), progress = $('#progress'), toTop = $('#toTop'), mbar = $('#mbar'), hero = $('.hero');
   var ticking = false;
   function onScroll() {
     var sy = window.scrollY || root.scrollTop;
@@ -23,6 +23,7 @@
     header.classList.toggle('scrolled', sy > 30);
     progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(sy / max, 1) : 0) + ')';
     toTop.classList.toggle('show', sy > 900);
+    mbar.classList.toggle('show', sy > 520);
     if (!reduce && sy < 1400) root.style.setProperty('--sy', sy);   // paralaxe suave dos brilhos do topo
     ticking = false;
   }
@@ -46,6 +47,26 @@
       if (!mouseTick) { mouseTick = true; requestAnimationFrame(function () { hero.style.setProperty('--mx', mx.toFixed(3)); hero.style.setProperty('--my', my.toFixed(3)); mouseTick = false; }); }
     });
   }
+
+  /* peças no topo: troca lenta (4,5 s), pausa com o mouse, fora da tela ou com a aba escondida */
+  var slides = $$('.slide'), sdots = $$('.sdot'), si = 0, stimer = null, heroArt = $('#heroArt');
+  function goSlide(i) {
+    si = (i + slides.length) % slides.length;
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === si); s.tabIndex = k === si ? 0 : -1; });
+    sdots.forEach(function (d, k) { d.classList.toggle('on', k === si); if (k === si) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current'); });
+  }
+  function slideAuto() {
+    clearInterval(stimer);
+    if (reduce || slides.length < 2) return;
+    stimer = setInterval(function () { if (!document.hidden && !hero.classList.contains('paused')) goSlide(si + 1); }, 4500);
+  }
+  sdots.forEach(function (d) { d.addEventListener('click', function () { goSlide(parseInt(d.dataset.s, 10)); slideAuto(); }); });
+  if (heroArt) {
+    heroArt.addEventListener('mouseenter', function () { clearInterval(stimer); });
+    heroArt.addEventListener('mouseleave', slideAuto);
+    heroArt.addEventListener('focusin', function () { clearInterval(stimer); });
+  }
+  slideAuto();
 
   /* ---------- 3. menu (celular) e destaque da seção atual ---------- */
   var nav = $('#nav'), menuBtn = $('#menuBtn');
@@ -225,10 +246,11 @@
   var st = { adultos: 2, criancas: 1, pets: 0 };
   function plural(n, s, p) { return n + ' ' + (n === 1 ? s : p); }
   function build() {
-    var frase = $('#frase').value;
+    var frase = $('#frase').value, nome = $('#nome').value.trim();
+    $('#rbFrase').textContent = frase; $('#rbNome').textContent = nome;
     var txt = plural(st.adultos, 'adulto', 'adultos') + ', ' + plural(st.criancas, 'criança', 'crianças') + ' e ' + plural(st.pets, 'pet', 'pets');
-    $('#resumo').textContent = 'Sua guirlanda: ' + txt + ' · frase: ' + frase;
-    var msg = 'Olá, Juliana! Quero encomendar uma guirlanda de família.\nPessoas e pets: ' + txt + '.\nFrase: ' + frase + '.\nPosso te contar os detalhes de cada um?';
+    $('#resumo').textContent = 'Sua guirlanda: ' + txt + ' · frase: ' + frase + (nome ? ' — ' + nome : '');
+    var msg = 'Olá, Juliana! Quero encomendar uma guirlanda de família.\nPessoas e pets: ' + txt + '.\nFrase: ' + frase + (nome ? ' — ' + nome : '') + '.\nPosso te contar os detalhes de cada um?';
     $('#builderBtn').href = 'https://wa.me/5512981172440?text=' + encodeURIComponent(msg);
   }
   $$('.stepper button').forEach(function (b) {
@@ -237,7 +259,7 @@
       $('#' + k).textContent = st[k]; build();
     });
   });
-  $('#frase').addEventListener('change', build); build();
+  $('#frase').addEventListener('change', build); $('#nome').addEventListener('input', build); build();
 
   /* ---------- 9. avaliações: setas e barra de posição ---------- */
   var sl = $('#slider'), bar = $('#sliderBar');
@@ -252,7 +274,25 @@
   sl.addEventListener('scroll', function () { requestAnimationFrame(pos); }, { passive: true });
   window.addEventListener('resize', pos); pos();
 
-  /* ---------- 10. extras ---------- */
+  /* ---------- 10. medir cliques nos canais ----------
+     Por si só não coleta nada: envia o evento a quem estiver instalado na página
+     (Plausible, Google Analytics ou Tag Manager). Sem um desses, nada é registrado. */
+  function track(name, props) {
+    try {
+      if (window.plausible) window.plausible(name, { props: props });
+      if (window.gtag) window.gtag('event', name, props);
+      (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: name }, props));
+    } catch (e) {}
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]'); if (!a) return;
+    var u = a.href, canal = /shopee\.com\.br/.test(u) ? 'shopee' : /wa\.me/.test(u) ? 'whatsapp' : /instagram\.com/.test(u) ? 'instagram' : null;
+    if (!canal) return;
+    var sec = a.closest('section, header, footer, .mbar, .fab');
+    track('clique_canal', { canal: canal, onde: sec ? (sec.id || sec.className.split(' ')[0]) : 'pagina', texto: (a.textContent || '').trim().slice(0, 40) });
+  });
+
+  /* ---------- 11. extras ---------- */
   $('#share').addEventListener('click', function () {
     var data = { title: 'Artesanatos Juliana', text: 'Olha que lindas as peças de feltro da Juliana!', url: location.href };
     if (navigator.share) navigator.share(data).catch(function () {});
