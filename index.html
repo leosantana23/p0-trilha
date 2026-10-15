@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Artesanatos Juliana — Peças em feltro feitas à mão para decorar e presentear</title>
+  <meta name="description" content="Guirlandas de nome, guirlandas de família, enfeites de Natal e lembrancinhas em feltro e madeira, feitas à mão em São José dos Campos – SP. Compre pela Shopee ou fale no WhatsApp.">
+  <meta name="theme-color" content="#F0507A">
+
+  <!-- Pré-visualização ao compartilhar o link (WhatsApp, Instagram, etc.).
+       TROCAR "https://SEU-DOMINIO" pelo endereço real quando a página for publicada. -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Artesanatos Juliana — Feito à mão com amor">
+  <meta property="og:description" content="Peças artesanais em feltro e madeira, feitas à mão com carinho para quartos de bebê, presentes e decoração.">
+  <meta property="og:image" content="https://SEU-DOMINIO/assets/og-image.jpg">
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* cores tiradas do logo */
+      --rose:#F0507A; --rose-dark:#C73D64; --blush:#FFE9EE; --blush-2:#FFF3F6;
+      --cream:#FFF9F5; --teal:#43B5C0; --teal-dark:#1D7F8B; --gold:#E9A93A;
+      --leaf:#8A9A5B; --ink:#3A2622; --ink-soft:#5F4B46;
+      --wa:#128C7E; --ig:#C13584; --shopee:#D73F1F;
+      --head:"Lora",Georgia,"Times New Roman",serif;
+      --body:"Nunito","Segoe UI",system-ui,sans-serif;
+      --radius:24px; --shadow:0 12px 32px rgba(199,61,100,.15);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;font-family:var(--body);color:var(--ink);background:var(--cream);line-height:1.7;font-size:18px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    img{max-width:100%;display:block}
+    a{color:inherit}
+    .wrap{width:min(1140px,100% - 32px);margin-inline:auto}
+    h1,h2,h3{font-family:var(--head);margin:0;line-height:1.2;font-weight:700}
+    h2{font-size:clamp(1.8rem,4vw,2.6rem)}
+    .accent{color:var(--rose)}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;font:800 .9rem var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--rose-dark);margin:0 0 10px}
+    .eyebrow::before{content:"♥";color:var(--rose);font-size:1rem}
+    section{padding:84px 0;position:relative}
+    .section-head{text-align:center;max-width:700px;margin:0 auto 44px}
+    .section-head p:not(.eyebrow){color:var(--ink-soft);margin:.8rem 0 0;font-size:1.08rem}
+
+    /* ---------- botões ---------- */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:52px;padding:.8rem 1.5rem;border-radius:999px;font:800 1.02rem var(--body);text-decoration:none;color:#fff;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 16px rgba(58,38,34,.18)}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(58,38,34,.22)}
+    .btn:focus-visible,.chip:focus-visible,a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--teal-dark);outline-offset:3px}
+    .btn svg{width:24px;height:24px;flex:none}
+    .btn-wa{background:var(--wa)} .btn-ig{background:var(--ig)} .btn-shopee{background:var(--shopee)}
+    .btn-ghost{background:#fff;color:var(--rose-dark);box-shadow:inset 0 0 0 2px var(--rose)}
+    .btn-sm{min-height:44px;padding:.5rem 1.1rem;font-size:.95rem}
+
+    /* ---------- revelar ao rolar (suave, uma única vez) ---------- */
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;transition-delay:var(--d,0s)}
+    .reveal.in{opacity:1;transform:none}
+
+    /* ---------- topo ---------- */
+    header{position:sticky;top:0;z-index:40;background:rgba(255,249,245,.95);backdrop-filter:blur(8px);transition:box-shadow .3s}
+    header.scrolled{box-shadow:0 6px 20px rgba(58,38,34,.1)}
+    .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 0;transition:padding .3s}
+    header.scrolled .bar{padding:4px 0}
+    .brand img{height:66px;width:auto;transition:height .3s}
+    header.scrolled .brand img{height:52px}
+    nav ul{display:flex;gap:6px;list-style:none;margin:0;padding:0}
+    nav a{display:block;text-decoration:none;font-weight:700;font-size:1rem;padding:8px 14px;border-radius:999px;transition:background .2s,color .2s}
+    nav a:hover{background:var(--blush)}
+    nav a.active{background:var(--rose);color:#fff}
+    .menu-btn{display:none;min-height:46px;padding:.4rem 1rem;border-radius:999px;border:2px solid var(--rose);background:#fff;color:var(--rose-dark);font:800 1rem var(--body);cursor:pointer}
+    @media (max-width:980px){
+      .menu-btn{display:inline-block}
+      .bar .btn-wa{display:none}
+      nav{position:absolute;left:0;right:0;top:100%;background:var(--cream);border-bottom:2px dashed rgba(240,80,122,.3);display:none;box-shadow:0 14px 20px rgba(58,38,34,.1)}
+      nav.open{display:block}
+      nav ul{flex-direction:column;padding:12px 16px 18px;gap:4px}
+      nav a{font-size:1.1rem;padding:14px 16px}
+    }
+
+    /* ---------- hero ---------- */
+    .hero{background:linear-gradient(180deg,var(--blush) 0%,var(--blush-2) 75%,var(--cream) 100%);padding:48px 0 110px;overflow:hidden}
+    .hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:36px;align-items:center;position:relative;z-index:2}
+    .blob{position:absolute;border-radius:50%;filter:blur(50px);opacity:.55;pointer-events:none}
+    .blob.b1{width:380px;height:380px;background:#FFC2D2;top:-110px;right:-60px}
+    .blob.b2{width:300px;height:300px;background:#BDEBEF;bottom:20px;left:-90px}
+    .countdown{display:inline-flex;align-items:center;gap:10px;background:#fff;border:2px dashed var(--rose);color:var(--rose-dark);padding:8px 16px;border-radius:999px;font-weight:800;font-size:.98rem;text-decoration:none;margin-bottom:20px;line-height:1.35}
+    .countdown b{background:var(--rose);color:#fff;padding:2px 10px;border-radius:999px;font-size:1.05rem}
+    .hero h1{font-size:clamp(2.2rem,5.2vw,3.7rem)}
+    .hero p.lead{font-size:1.2rem;color:var(--ink-soft);max-width:540px;margin:20px 0 28px}
+    .channels{display:flex;flex-wrap:wrap;gap:12px}
+    .hero-art{position:relative;display:grid;place-items:center;aspect-ratio:1/1;max-width:500px;margin-inline:auto;width:100%}
+    .hero-art .disc{position:absolute;inset:4%;border-radius:50%;background:#fff;border:10px dotted #F7A8BF;box-shadow:var(--shadow)}
+    .hero-art .disc::after{content:"";position:absolute;inset:14px;border-radius:50%;border:2px dashed rgba(240,80,122,.5)}
+    .hero-art img{position:relative;width:84%;height:auto;animation:bob 6s ease-in-out infinite}
+    @keyframes bob{50%{transform:translateY(-10px) rotate(.8deg)}}
+    .float{position:absolute;color:var(--rose);opacity:.7;font-size:1.6rem;animation:drift 9s ease-in-out infinite;pointer-events:none}
+    .float:nth-child(4){left:2%;top:18%;animation-delay:-2s;font-size:1.2rem}
+    .float:nth-child(5){right:0;top:30%;animation-delay:-5s;color:var(--teal)}
+    .float:nth-child(6){left:10%;bottom:10%;animation-delay:-7s}
+    @keyframes drift{50%{transform:translateY(-16px) translateX(6px)}}
+    .scallop{position:absolute;left:0;right:0;bottom:-1px;height:24px;background:radial-gradient(circle at 15px 24px,var(--cream) 14px,transparent 15px) 0 0/30px 24px repeat-x}
+    @media (max-width:900px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.hero-art{max-width:380px}}
+
+    /* ---------- confiança ---------- */
+    .trust{padding:0;margin-top:-44px;z-index:3}
+    .trust ul{list-style:none;margin:0;padding:26px 18px;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center}
+    .trust strong{display:block;font:700 2.3rem var(--head);color:var(--rose);line-height:1.1}
+    .trust span.t{font-size:.95rem;color:var(--ink-soft);line-height:1.4;display:block;margin-top:4px}
+    @media (max-width:760px){.trust ul{grid-template-columns:repeat(2,1fr)}.trust strong{font-size:1.9rem}}
+
+    /* ---------- vitrine ---------- */
+    .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:34px}
+    .chip{min-height:48px;padding:.5rem 1.3rem;border-radius:999px;border:2px solid var(--rose);background:#fff;color:var(--rose-dark);font:800 1rem var(--body);cursor:pointer;transition:background .2s,color .2s}
+    .chip:hover{background:var(--blush)}
+    .chip[aria-pressed="true"]{background:var(--rose);color:#fff}
+    .grid{columns:3 270px;column-gap:22px}
+    .card{break-inside:avoid;margin:0 0 22px;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 6px 22px rgba(58,38,34,.09);display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s,opacity .35s}
+    .card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(199,61,100,.18)}
+    .card[hidden]{display:none}
+    .card.fading{opacity:0;transform:scale(.97)}
+    .card .pic{position:relative;display:block;border:0;padding:0;background:var(--blush-2);cursor:zoom-in;overflow:hidden;width:100%}
+    .card .pic img{width:100%;height:auto;max-height:480px;object-fit:cover;transition:transform .5s}
+    .card:hover .pic img{transform:scale(1.04)}
+    .card .pic::after{content:"🔍 Ver maior";position:absolute;right:10px;bottom:10px;background:rgba(58,38,34,.78);color:#fff;font:700 .85rem var(--body);padding:5px 12px;border-radius:999px;opacity:0;transition:opacity .25s}
+    .card:hover .pic::after,.card .pic:focus-visible::after{opacity:1}
+    @media (hover:none){.card .pic::after{opacity:1}}
+    .card .body{padding:18px 20px 20px}
+    .card .kicker{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);font-weight:800}
+    .card h3{font-size:1.15rem;margin:2px 0 6px}
+    .card p{margin:0 0 12px;font-size:1rem;color:var(--ink-soft);line-height:1.55}
+    .card a.go{font-weight:800;color:var(--rose-dark);text-decoration:none;border-bottom:3px solid var(--blush)}
+    .card a.go:hover{border-color:var(--rose)}
+    .note{max-width:760px;margin:16px auto 0;text-align:center;color:var(--ink-soft);background:var(--blush-2);border:2px dashed rgba(240,80,122,.4);border-radius:18px;padding:16px 20px}
+    .more{text-align:center;margin-top:28px}
+
+    /* ---------- guirlanda de família ---------- */
+    .family{background:linear-gradient(180deg,var(--cream),#E4F6F8 55%,var(--cream))}
+    .family .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:start}
+    .family .pics{position:sticky;top:110px}
+    .family .pics img{border-radius:var(--radius);box-shadow:var(--shadow);width:100%;height:auto}
+    .family .pics .p2{width:76%;margin:-56px 0 0 auto;border:6px solid #fff;position:relative}
+    .builder{background:#fff;border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);margin-top:24px;border:2px solid var(--blush)}
+    .builder h3{font-size:1.3rem;margin-bottom:4px}
+    .builder .sub{margin:0 0 18px;color:var(--ink-soft);font-size:.98rem}
+    .row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px dashed #F4C3D0}
+    .row label{font-weight:800}
+    .stepper{display:flex;align-items:center;gap:10px}
+    .stepper button{width:46px;height:46px;border-radius:50%;border:2px solid var(--rose);background:#fff;color:var(--rose-dark);font:800 1.6rem/1 var(--body);cursor:pointer}
+    .stepper button:hover{background:var(--blush)}
+    .stepper output{min-width:34px;text-align:center;font:700 1.5rem var(--head)}
+    .builder select{font:600 1rem var(--body);padding:.7rem 1rem;border:2px solid #F4C3D0;border-radius:14px;min-height:48px;background:#fff;color:var(--ink);max-width:100%}
+    .builder .summary{margin:16px 0;padding:14px 16px;background:var(--blush-2);border-radius:16px;font-weight:700;color:var(--rose-dark)}
+    .steps{list-style:none;counter-reset:s;margin:26px 0 0;padding:0;display:grid;gap:16px}
+    .steps li{counter-increment:s;display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start}
+    .steps li::before{content:counter(s);width:48px;height:48px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font:700 1.5rem var(--head)}
+    .steps b{display:block;font-size:1.05rem}
+    .steps span{color:var(--ink-soft);font-size:1rem}
+    @media (max-width:900px){.family .wrap{grid-template-columns:minmax(0,1fr)}.family .pics{position:static}}
+
+    /* ---------- avaliações ---------- */
+    .reviews{background:var(--blush)}
+    .slider{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 4px 24px;scrollbar-width:thin;scrollbar-color:var(--rose) transparent}
+    .quote{margin:0;flex:0 0 min(360px,84vw);scroll-snap-align:start;background:#fff;border-radius:var(--radius);padding:28px 24px;box-shadow:0 6px 18px rgba(199,61,100,.12);display:flex;flex-direction:column;justify-content:space-between;gap:18px;position:relative}
+    .quote::before{content:"“";position:absolute;top:-6px;right:18px;font:700 5rem/1 var(--head);color:var(--blush)}
+    .quote .stars{color:var(--gold);letter-spacing:3px;font-size:1.15rem}
+    .quote blockquote{margin:6px 0 0;font-size:1.03rem}
+    .quote figcaption{font-size:.95rem;color:var(--ink-soft)}
+    .quote figcaption b{color:var(--ink)}
+    .arrows{display:flex;justify-content:center;gap:14px;margin-top:6px}
+    .arrows button{width:56px;height:56px;border-radius:50%;border:2px solid var(--rose);background:#fff;color:var(--rose-dark);font:800 1.5rem/1 var(--body);cursor:pointer;transition:background .2s}
+    .arrows button:hover{background:var(--rose);color:#fff}
+
+    /* ---------- sobre ---------- */
+    .about .wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:48px;align-items:center}
+    .about .emblem{position:relative;max-width:380px;margin:auto;width:100%;aspect-ratio:1/1;display:grid;place-items:center}
+    .about .emblem::before{content:"";position:absolute;inset:0;border-radius:50%;background:#fff;border:10px dotted #F7A8BF;box-shadow:var(--shadow)}
+    .about .emblem img{position:relative;width:82%;height:auto}
+    .about p{color:var(--ink-soft)}
+    .about ul{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px}
+    .about li{display:flex;gap:12px;align-items:flex-start;font-weight:700}
+    .about li::before{content:"♥";color:var(--rose)}
+    @media (max-width:900px){.about .wrap{grid-template-columns:minmax(0,1fr)}.about .emblem{max-width:300px}}
+
+    /* ---------- como comprar ---------- */
+    .how{background:#fff}
+    .ways{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .way{border-radius:var(--radius);padding:32px 26px;text-align:center;border:2px solid var(--blush);background:var(--cream);display:flex;flex-direction:column;align-items:center;gap:10px;transition:transform .3s,box-shadow .3s}
+    .way:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+    .way h3{font-size:1.3rem}
+    .way p{margin:0 0 10px;color:var(--ink-soft);flex:1}
+    .way .ico{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;color:#fff}
+    .way .ico svg{width:32px;height:32px}
+    @media (max-width:900px){.ways{grid-template-columns:1fr}}
+
+    /* ---------- perguntas ---------- */
+    .faq .wrap{max-width:820px}
+    details{background:#fff;border-radius:18px;margin-bottom:14px;border:2px solid var(--blush);overflow:hidden}
+    details[open]{border-color:var(--rose)}
+    summary{cursor:pointer;list-style:none;font:700 1.12rem var(--head);padding:18px 54px 18px 22px;position:relative;min-height:58px}
+    summary::-webkit-details-marker{display:none}
+    summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font:800 1.8rem var(--body);color:var(--rose);transition:transform .3s}
+    details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+    details p{margin:0;padding:0 22px 20px;color:var(--ink-soft)}
+
+    /* ---------- rodapé ---------- */
+    footer.site{background:var(--ink);color:#F7E8E3;padding:56px 0 100px;text-align:center}
+    footer.site .logo{background:#fff;border-radius:20px;padding:10px 22px;display:inline-block}
+    footer.site .logo img{height:84px;width:auto}
+    footer.site p{margin:.6rem 0}
+    footer.site .channels{justify-content:center;margin:22px 0}
+    footer.site small{color:#CDB6AF}
+
+    /* ---------- botão flutuante + foto ampliada ---------- */
+    .fab{position:fixed;right:16px;bottom:16px;z-index:35;height:60px;min-width:60px;padding:0 20px 0 16px;border-radius:999px;background:var(--wa);color:#fff;display:flex;align-items:center;gap:10px;font-weight:800;text-decoration:none;box-shadow:0 8px 22px rgba(0,0,0,.3)}
+    .fab svg{width:30px;height:30px}
+    @media (max-width:560px){.fab span{display:none}.fab{padding:0;width:60px;justify-content:center}}
+    dialog.lb{border:0;border-radius:var(--radius);padding:0;width:min(760px,94vw);max-height:94vh;background:#fff;overflow:auto;position:fixed}
+    dialog.lb::backdrop{background:rgba(58,38,34,.72)}
+    .lb figure{margin:0}
+    .lb img{width:100%;max-height:64vh;object-fit:contain;background:var(--blush-2)}
+    .lb .info{padding:18px 24px 24px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+    .lb h3{font-size:1.25rem;flex:1 1 100%}
+    .lb .nav{display:flex;gap:10px}
+    .lb .nav button,.lb .close{width:52px;height:52px;border-radius:50%;border:2px solid var(--rose);background:#fff;color:var(--rose-dark);font:800 1.4rem/1 var(--body);cursor:pointer}
+    .lb .close{position:absolute;top:10px;right:10px;z-index:2}
+
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .reveal{opacity:1;transform:none;transition:none}
+      .hero-art img,.float{animation:none}
+      .btn,.card,.way,.card .pic img{transition:none}
+    }
+  </style>
+</head>
+<body>
+
+<!-- Ícones dos canais -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4.1c1.7.7 2.4.8 3.3.6a2.8 2.8 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3z"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/></g><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></symbol>
+    <symbol id="i-shop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M4 8h16l-1.2 12H5.2z"/><path d="M8.5 8V7a3.5 3.5 0 0 1 7 0v1"/><path d="M10 13.5c.4 1 1.2 1.5 2 1.5 1 0 1.7-.6 1.7-1.4 0-2-3.6-1.2-3.6-3 0-.8.7-1.3 1.6-1.3.8 0 1.5.4 1.8 1.1"/></g></symbol>
+  </defs>
+</svg>
+
+<header id="header">
+  <div class="wrap bar">
+    <a class="brand" href="#topo" aria-label="Artesanatos Juliana — início"><img src="assets/logo-horizontal.webp" alt="Artesanatos Juliana — feito à mão com amor" width="1000" height="446"></a>
+    <nav id="nav" aria-label="Principal">
+      <ul>
+        <li><a href="#vitrine">Vitrine</a></li>
+        <li><a href="#familia">Guirlanda de família</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#comprar">Como comprar</a></li>
+        <li><a href="#duvidas">Dúvidas</a></li>
+      </ul>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">☰ Menu</button>
+    <a class="btn btn-wa btn-sm" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20pe%C3%A7as." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+  </div>
+</header>
+
+<main id="topo">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" aria-labelledby="titulo">
+    <div class="blob b1" aria-hidden="true"></div><div class="blob b2" aria-hidden="true"></div>
+    <div class="wrap">
+      <div>
+        <a class="countdown reveal" href="#vitrine" data-filter-link="natal"><span aria-hidden="true">🎄</span><span id="cdText">Natal chegando: guirlandas e pingentes na vitrine</span></a>
+        <h1 id="titulo" class="reveal" style="--d:.1s">Tudo para <span class="accent">decorar, encantar</span> e eternizar momentos especiais.</h1>
+        <p class="lead reveal" style="--d:.2s">Peças artesanais em feltro e madeira, feitas à mão com carinho para quartos de bebê, presentes e decoração. Direto do ateliê da Juliana, em São José dos Campos – SP.</p>
+        <div class="channels reveal" style="--d:.3s">
+          <a class="btn btn-shopee" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-shop"/></svg>Comprar na Shopee</a>
+          <a class="btn btn-wa" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20pe%C3%A7as." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Falar no WhatsApp</a>
+          <a class="btn btn-ig" href="https://instagram.com/artesanatosjuliana" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>Ver no Instagram</a>
+        </div>
+      </div>
+      <div class="hero-art reveal" style="--d:.2s">
+        <div class="disc" aria-hidden="true"></div>
+        <img src="assets/logo-corujas.webp" alt="Casal de corujinhas de feltro: uma rosa com laço e outra azul, juntas num galho florido" width="700" height="571">
+        <span class="float" aria-hidden="true">♥</span><span class="float" aria-hidden="true">♥</span><span class="float" aria-hidden="true">✿</span><span class="float" aria-hidden="true">♥</span>
+      </div>
+    </div>
+    <div class="scallop" aria-hidden="true"></div>
+  </section>
+
+  <!-- ================= CONFIANÇA ================= -->
+  <section class="trust" aria-label="Por que confiar">
+    <div class="wrap">
+      <ul>
+        <li class="reveal"><strong><span data-count id="anos">14</span> anos</strong><span class="t">vendendo artesanato pela internet, desde 2012</span></li>
+        <li class="reveal" style="--d:.1s"><strong>+<span data-count>280</span></strong><span class="t">avaliações positivas de clientes</span></li>
+        <li class="reveal" style="--d:.2s"><strong>100% à mão</strong><span class="t">cada peça é criada e costurada pela Juliana</span></li>
+        <li class="reveal" style="--d:.3s"><strong>Bem embalado</strong><span class="t">cuidado do ateliê até a sua porta</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= VITRINE ================= -->
+  <section id="vitrine" aria-labelledby="t-vitrine">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Nossa vitrine</p>
+        <h2 id="t-vitrine">Para cada ocasião, uma peça feita com <span class="accent">carinho</span></h2>
+        <p>Escolha por ocasião. Toque na foto para ver maior; depois é só seguir para a Shopee ou conversar no WhatsApp.</p>
+      </div>
+
+      <div class="chips reveal" role="group" aria-label="Filtrar por ocasião">
+        <button class="chip" data-filter="todos" aria-pressed="true">Todos</button>
+        <button class="chip" data-filter="natal" aria-pressed="false">🎄 Natal</button>
+        <button class="chip" data-filter="bebe" aria-pressed="false">Bebê e maternidade</button>
+        <button class="chip" data-filter="presente" aria-pressed="false">Presentes e lembrancinhas</button>
+      </div>
+
+      <div class="grid" id="grid">
+        <!-- NATAL -->
+        <article class="card" data-cat="natal">
+          <button class="pic" type="button" aria-label="Ampliar foto: Guirlanda Mamãe e Papai Noel"><img src="assets/natal-mamae-papai.webp" alt="Guirlanda de Natal com Mamãe e Papai Noel e árvore, em feltro" loading="lazy" width="800" height="1067"></button>
+          <div class="body"><span class="kicker">Natal</span><h3>Guirlanda Mamãe e Papai Noel</h3><p>Para a porta ou a parede, com árvore, presentes e plaquinha “Feliz Natal”.</p><a class="go" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener">Ver na Shopee ›</a></div>
+        </article>
+        <article class="card" data-cat="natal">
+          <button class="pic" type="button" aria-label="Ampliar foto: Guirlanda Papai Noel e as cartinhas"><img src="assets/natal-papai-noel.webp" alt="Guirlanda de Natal com Papai Noel, árvore e caixinha de cartas" loading="lazy" width="800" height="1201"></button>
+          <div class="body"><span class="kicker">Natal</span><h3>Guirlanda Papai Noel e as cartinhas</h3><p>Bolinhas de poá, árvore enfeitada e o Papai Noel recebendo as cartas.</p><a class="go" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener">Ver na Shopee ›</a></div>
+        </article>
+        <article class="card" data-cat="natal">
+          <button class="pic" type="button" aria-label="Ampliar foto: Guirlanda Natal Super-Heróis"><img src="assets/natal-herois.webp" alt="Guirlanda Feliz Natal com Papai Noel e super-heróis de gorro" loading="lazy" width="800" height="1067"></button>
+          <div class="body"><span class="kicker">Natal</span><h3>Guirlanda Natal Super-Heróis</h3><p>Papai Noel cercado de heróis de gorro. Sucesso entre as crianças.</p><a class="go" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener">Ver na Shopee ›</a></div>
+        </article>
+        <article class="card" data-cat="natal presente">
+          <button class="pic" type="button" aria-label="Ampliar foto: Pingentes para a árvore"><img src="assets/pingentes-herois.webp" alt="Pingentes de Natal de feltro de super-heróis com gorro de Papai Noel" loading="lazy" width="450" height="450"></button>
+          <div class="body"><span class="kicker">Natal</span><h3>Pingentes para a árvore</h3><p>Kits de enfeites em vários temas: estrelinhas, gatinhos e cachorrinhos, fofinhos e personagens.</p><a class="go" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener">Ver na Shopee ›</a></div>
+        </article>
+
+        <!-- BEBÊ -->
+        <article class="card" data-cat="bebe">
+          <button class="pic" type="button" aria-label="Ampliar foto: Guirlanda de nome Toy Story"><img src="assets/guirlanda-heitor.webp" alt="Guirlanda de nome Heitor com tema Toy Story, em feltro" loading="lazy" width="800" height="1067"></button>
+          <div class="body"><span class="kicker">Sob encomenda</span><h3>Guirlanda de nome — Toy Story</h3><p>Feita com o nome e o tema do bebê, para a porta da maternidade e o quarto.</p><a class="go" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Quero%20encomendar%20uma%20guirlanda%20com%20o%20nome%20do%20meu%20beb%C3%AA." target="_blank" rel="noopener">Encomendar no WhatsApp ›</a></div>
+        </article>
+        <article class="card" data-cat="bebe">
+          <button class="pic" type="button" aria-label="Ampliar foto: Guirlanda e abajur Fazendinha"><img src="assets/guirlanda-george.webp" alt="Guirlanda de nome George com tema fazendinha e abajur combinando" loading="lazy" width="900" height="675"></button>
+          <div class="body"><span class="kicker">Sob encomenda</span><h3>Guirlanda e abajur — Fazendinha</h3><p>Dá para combinar a guirlanda com um abajur no mesmo tema.</p><a class="go" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Quero%20encomendar%20uma%20guirlanda%20com%20o%20nome%20do%20meu%20beb%C3%AA." target="_blank" rel="noopener">Encomendar no WhatsApp ›</a></div>
+        </article>
+        <article class="card" data-cat="bebe">
+          <button class="pic" type="button" aria-label="Ampliar foto: Guirlanda de nome Menina"><img src="assets/guirlanda-tiffany.webp" alt="Guirlanda de nome Tiffany rosa com bonequinha, borboleta e bichinhos" loading="lazy" width="800" height="945"></button>
+          <div class="body"><span class="kicker">Sob encomenda</span><h3>Guirlanda de nome — Menina</h3><p>Cores suaves, bonequinha no centro e bichinhos da fazendinha.</p><a class="go" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Quero%20encomendar%20uma%20guirlanda%20com%20o%20nome%20do%20meu%20beb%C3%AA." target="_blank" rel="noopener">Encomendar no WhatsApp ›</a></div>
+        </article>
+        <article class="card" data-cat="bebe">
+          <button class="pic" type="button" aria-label="Ampliar foto: Guirlanda de nome Menino"><img src="assets/guirlanda-joaquim.webp" alt="Guirlanda de nome Joaquim azul com menino de patinete, balões e cachorrinhos" loading="lazy" width="900" height="727"></button>
+          <div class="body"><span class="kicker">Sob encomenda</span><h3>Guirlanda de nome — Menino</h3><p>Balões, patinete e os cachorrinhos da família, tudo em feltro.</p><a class="go" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Quero%20encomendar%20uma%20guirlanda%20com%20o%20nome%20do%20meu%20beb%C3%AA." target="_blank" rel="noopener">Encomendar no WhatsApp ›</a></div>
+        </article>
+        <article class="card" data-cat="bebe">
+          <button class="pic" type="button" aria-label="Ampliar foto: Guirlanda de nome Fazendinha"><img src="assets/guirlanda-lucas.webp" alt="Guirlanda de nome Lucas azul com fazendeiro e animais" loading="lazy" width="800" height="998"></button>
+          <div class="body"><span class="kicker">Sob encomenda</span><h3>Guirlanda de nome — Fazendinha</h3><p>Vaquinhas, ovelha, cavalinho e pintinhos em volta do nome do bebê.</p><a class="go" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Quero%20encomendar%20uma%20guirlanda%20com%20o%20nome%20do%20meu%20beb%C3%AA." target="_blank" rel="noopener">Encomendar no WhatsApp ›</a></div>
+        </article>
+        <article class="card" data-cat="bebe presente">
+          <button class="pic" type="button" aria-label="Ampliar foto: Kit higiene Super-Heróis"><img src="assets/kit-higiene-herois.webp" alt="Kit higiene de madeira branca com bonecos de super-heróis em feltro" loading="lazy" width="900" height="506"></button>
+          <div class="body"><span class="kicker">Kit bebê</span><h3>Kit higiene Super-Heróis</h3><p>Caixinhas de madeira com laços de poá e heróis de feltro.</p><a class="go" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener">Ver na Shopee ›</a></div>
+        </article>
+        <article class="card" data-cat="bebe presente">
+          <button class="pic" type="button" aria-label="Ampliar foto: Naninha Cachorrinho"><img src="assets/naninha-cachorrinho.webp" alt="Naninha de cachorrinho com camiseta de corações coloridos" loading="lazy" width="600" height="1300"></button>
+          <div class="body"><span class="kicker">Kit bebê</span><h3>Naninha Cachorrinho</h3><p>Macia, com camiseta de corações. Presente para o primeiro abraço.</p><a class="go" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener">Ver na Shopee ›</a></div>
+        </article>
+
+        <!-- PRESENTES -->
+        <article class="card" data-cat="presente">
+          <button class="pic" type="button" aria-label="Ampliar foto: Chaveiros Corujinhas"><img src="assets/chaveiros-coruja.webp" alt="Chaveiros de corujinha de feltro em tons de rosa e vermelho, com laço e renda" loading="lazy" width="445" height="445"></button>
+          <div class="body"><span class="kicker">Presentinho</span><h3>Chaveiros Corujinhas</h3><p>Com laço, renda e florzinhas. Perfeitos para presentear amigas.</p><a class="go" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener">Ver na Shopee ›</a></div>
+        </article>
+        <article class="card" data-cat="presente">
+          <button class="pic" type="button" aria-label="Ampliar foto: Chaveirinhos Vaqueiro"><img src="assets/chaveiros-vaqueiro.webp" alt="Chaveiros de feltro com rostinhos de vaqueiro" loading="lazy" width="700" height="1518"></button>
+          <div class="body"><span class="kicker">Lembrancinha</span><h3>Chaveirinhos Vaqueiro</h3><p>Ótimos para festas e lembrancinhas de aniversário.</p><a class="go" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener">Ver na Shopee ›</a></div>
+        </article>
+        <article class="card" data-cat="presente">
+          <button class="pic" type="button" aria-label="Ampliar foto: Terços de feltro"><img src="assets/tercos-feltro.webp" alt="Terços de feltro com santinhos bordados" loading="lazy" width="900" height="700"></button>
+          <div class="body"><span class="kicker">Presente religioso</span><h3>Terços de feltro</h3><p>Com santos de feltro e pérolas. Lindos para batizado e primeira comunhão.</p><a class="go" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Gostaria%20de%20saber%20mais%20sobre%20os%20ter%C3%A7os%20de%20feltro." target="_blank" rel="noopener">Perguntar no WhatsApp ›</a></div>
+        </article>
+        <article class="card" data-cat="presente">
+          <button class="pic" type="button" aria-label="Ampliar foto: Coelhinhos de Páscoa"><img src="assets/coelhos-pascoa.webp" alt="Família de coelhinhos de feltro com cenouras" loading="lazy" width="700" height="1088"></button>
+          <div class="body"><span class="kicker">Páscoa</span><h3>Coelhinhos de Páscoa</h3><p>Coelhinhos e cenouras de feltro para enfeitar a casa na Páscoa.</p><a class="go" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Gostaria%20de%20saber%20mais%20sobre%20os%20coelhinhos%20de%20P%C3%A1scoa." target="_blank" rel="noopener">Perguntar no WhatsApp ›</a></div>
+        </article>
+        <article class="card" data-cat="presente">
+          <button class="pic" type="button" aria-label="Ampliar foto: Jogo da memória de feltro"><img src="assets/jogo-memoria.webp" alt="Jogo da memória de feltro com bichinhos e personagens coloridos" loading="lazy" width="900" height="447"></button>
+          <div class="body"><span class="kicker">Brincar e aprender</span><h3>Jogo da memória de feltro</h3><p>Peças macias e coloridas, ótimas para presentear crianças.</p><a class="go" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Gostaria%20de%20saber%20mais%20sobre%20o%20jogo%20da%20mem%C3%B3ria%20de%20feltro." target="_blank" rel="noopener">Perguntar no WhatsApp ›</a></div>
+        </article>
+      </div>
+
+      <p class="note">As guirlandas de nome são feitas sob encomenda, com o nome e o tema do bebê. As demais peças são criações da Juliana com design pronto; dá para pedir <b>sugestão de cores</b> e ajustes simples.</p>
+      <div class="more"><a class="btn btn-shopee" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-shop"/></svg>Ver todos os produtos na Shopee</a></div>
+    </div>
+  </section>
+
+  <!-- ================= GUIRLANDA DE FAMÍLIA ================= -->
+  <section id="familia" class="family" aria-labelledby="t-familia">
+    <div class="wrap">
+      <div class="pics reveal">
+        <img src="assets/familia-bemvindo.webp" alt="Guirlanda de família Bem-vindo, com pai, filha, mãe com bebê e gatinhos em feltro" loading="lazy" width="900" height="838">
+        <img class="p2" src="assets/familia-bemvindos.webp" alt="Detalhe de outra guirlanda de família, com pai, filha e mãe de cabelos escuros" loading="lazy" width="900" height="562">
+      </div>
+      <div>
+        <p class="eyebrow reveal">A mais especial de todas</p>
+        <h2 id="t-familia" class="reveal">Guirlanda de Família: a sua família <span class="accent">em feltro</span></h2>
+        <p class="reveal" style="color:var(--ink-soft)">É o único trabalho 100% personalizado da Juliana: cada pessoa, cada pet e cada detalhe são feitos para parecer com a sua família. Um presente que vira lembrança para a porta de casa.</p>
+
+        <form class="builder reveal" id="builder" onsubmit="return false">
+          <h3>Monte o seu pedido</h3>
+          <p class="sub">Conte como é a sua família e a gente leva tudo pronto para a conversa no WhatsApp.</p>
+          <div class="row"><label for="adultos">Adultos</label><div class="stepper"><button type="button" data-step="adultos" data-d="-1" aria-label="Menos um adulto">−</button><output id="adultos">2</output><button type="button" data-step="adultos" data-d="1" aria-label="Mais um adulto">+</button></div></div>
+          <div class="row"><label for="criancas">Crianças</label><div class="stepper"><button type="button" data-step="criancas" data-d="-1" aria-label="Menos uma criança">−</button><output id="criancas">1</output><button type="button" data-step="criancas" data-d="1" aria-label="Mais uma criança">+</button></div></div>
+          <div class="row"><label for="pets">Pets</label><div class="stepper"><button type="button" data-step="pets" data-d="-1" aria-label="Menos um pet">−</button><output id="pets">0</output><button type="button" data-step="pets" data-d="1" aria-label="Mais um pet">+</button></div></div>
+          <div class="row"><label for="frase">Frase na guirlanda</label>
+            <select id="frase"><option>Bem-vindos</option><option>Bem-vindo</option><option>Família + sobrenome</option><option>Outra (conto na conversa)</option></select></div>
+          <p class="summary" id="resumo" aria-live="polite"></p>
+          <a class="btn btn-wa" id="builderBtn" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enviar para a Juliana</a>
+        </form>
+
+        <ol class="steps">
+          <li class="reveal"><div><b>Conte quem faz parte da família</b><span>Cabelo, roupas, cores e o que mais for importante para você.</span></div></li>
+          <li class="reveal"><div><b>A Juliana desenha e costura</b><span>Cada bonequinho é feito à mão, com atenção aos detalhes que você passou.</span></div></li>
+          <li class="reveal"><div><b>Receba bem embalada</b><span>A guirlanda chega pronta para pendurar. Prazo e valor são combinados na conversa.</span></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AVALIAÇÕES ================= -->
+  <section id="avaliacoes" class="reviews" aria-labelledby="t-aval">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Quem já recebeu</p>
+        <h2 id="t-aval">O que as clientes <span class="accent">dizem</span></h2>
+        <p>Avaliações reais recebidas ao longo de mais de 13 anos de vendas.</p>
+      </div>
+      <div class="reveal">
+        <div class="slider" id="slider" tabindex="0" aria-label="Avaliações de clientes">
+          <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Gente, que capricho!! Desde o primeiro atendimento à entrega!! Os bonequinhos vieram perfeitos e muito bem feitos. Dá pra ver que tem muito amor envolvido!!</blockquote></div><figcaption><b>Luciana</b> · chaveirinhos super-heróis · 2020</figcaption></figure>
+          <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Amei meus chaveirinhos de coruja, muito caprichado e bem embalado. A comunicação e o atendimento foram perfeitos, a Juliana personalizou do jeitinho que eu pedi, muito obrigada.</blockquote></div><figcaption><b>Adriana</b> · chaveiros corujas · 2023</figcaption></figure>
+          <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Melhor escolha que eu fiz. Chegou tudo perfeito. Bem embalado e, melhor de tudo, uma perfeição em cada peça.</blockquote></div><figcaption><b>Graziele</b> · pingentes de Natal · 2024</figcaption></figure>
+          <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>A guirlanda é muito bem feita, igual à foto, chegou muito bem embalada, obrigada Juliana.</blockquote></div><figcaption><b>Eliana</b> · guirlanda de Natal · 2020</figcaption></figure>
+          <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>A vendedora foi super atenciosa. O abajur atendeu todas as expectativas de compra, é exatamente como está no anúncio e chegou muito bem embalado. Estou muito satisfeita!</blockquote></div><figcaption><b>Yohana</b> · abajur super-heróis · 2020</figcaption></figure>
+          <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Amei a guirlanda!!! A Ju é muito atenciosa, caprichosa em tudo o que faz. Tenho várias coisas dela e certamente irei comprar mais.</blockquote></div><figcaption><b>Cliente</b> · guirlanda</figcaption></figure>
+          <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Perfeito!! Excelente profissional, cuidadosa, atenciosa e buscou de todas as formas e maneiras atender ao meu pedido.</blockquote></div><figcaption><b>Cliente</b> · pedido personalizado</figcaption></figure>
+          <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Adorei a experiência de compra, profissional muito atenciosa, chegou bem embalada, no prazo. Parabéns pelo capricho. Adorei!</blockquote></div><figcaption><b>Cliente</b> · compra online</figcaption></figure>
+          <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Ficou linda minha guirlanda, do jeito que eu queria!!! Obrigada pela atenção.</blockquote></div><figcaption><b>Cliente</b> · guirlanda personalizada</figcaption></figure>
+          <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Simplesmente lindo, adorei!!! Riqueza de detalhes.</blockquote></div><figcaption><b>Cliente</b> · compra online</figcaption></figure>
+        </div>
+        <div class="arrows"><button type="button" id="prev" aria-label="Avaliação anterior">‹</button><button type="button" id="next" aria-label="Próxima avaliação">›</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SOBRE ================= -->
+  <section id="sobre" class="about" aria-labelledby="t-sobre">
+    <div class="wrap">
+      <div class="emblem reveal"><img src="assets/logo-corujas.webp" alt="Corujinhas, símbolo da Artesanatos Juliana" loading="lazy" width="700" height="571"></div>
+      <div>
+        <p class="eyebrow reveal">Quem faz</p>
+        <h2 id="t-sobre" class="reveal">Uma artesã, muitas histórias para <span class="accent">contar</span></h2>
+        <p class="reveal">A Juliana cria artesanato em feltro e madeira há mais de uma década, em São José dos Campos – SP. Cada peça nasce de um desenho dela e passa pelas suas mãos do corte à última costura, sem produção em série.</p>
+        <p class="reveal">Por isso quem compra costuma voltar e indicar: o carinho aparece no acabamento, na embalagem e no atendimento.</p>
+        <!-- TODO: se a Juliana quiser, adicionar aqui uma foto dela trabalhando e uma frase na voz dela -->
+        <ul class="reveal">
+          <li>Peças autorais, desenhadas pela própria Juliana</li>
+          <li>Feltro e madeira, com acabamento à mão</li>
+          <li>Atendimento direto, de pessoa para pessoa</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COMO COMPRAR ================= -->
+  <section id="comprar" class="how" aria-labelledby="t-comprar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Três jeitos de chegar até a gente</p>
+        <h2 id="t-comprar">Como <span class="accent">comprar</span></h2>
+      </div>
+      <div class="ways">
+        <div class="way reveal">
+          <span class="ico" style="background:var(--shopee)"><svg aria-hidden="true"><use href="#i-shop"/></svg></span>
+          <h3>Pela Shopee</h3>
+          <p>O jeito mais fácil de comprar as peças prontas, com pagamento e entrega protegidos pela plataforma.</p>
+          <a class="btn btn-shopee btn-sm" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener">Abrir a loja</a>
+        </div>
+        <div class="way reveal" style="--d:.1s">
+          <span class="ico" style="background:var(--wa)"><svg aria-hidden="true"><use href="#i-wa"/></svg></span>
+          <h3>Pelo WhatsApp</h3>
+          <p>Para tirar dúvidas, pedir sugestão de cores, encomendar guirlandas de nome e a guirlanda de família.</p>
+          <a class="btn btn-wa btn-sm" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20pe%C3%A7as." target="_blank" rel="noopener">Chamar a Juliana</a>
+        </div>
+        <div class="way reveal" style="--d:.2s">
+          <span class="ico" style="background:var(--ig)"><svg aria-hidden="true"><use href="#i-ig"/></svg></span>
+          <h3>Pelo Instagram</h3>
+          <p>Veja novidades, bastidores e peças novas antes de todo mundo. Também dá para mandar mensagem.</p>
+          <a class="btn btn-ig btn-sm" href="https://instagram.com/artesanatosjuliana" target="_blank" rel="noopener">Seguir @artesanatosjuliana</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PERGUNTAS ================= -->
+  <section id="duvidas" class="faq" aria-labelledby="t-faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Ficou com dúvida?</p>
+        <h2 id="t-faq">Perguntas <span class="accent">frequentes</span></h2>
+      </div>
+      <div class="reveal">
+        <details><summary>Posso escolher outra cor nas peças da vitrine?</summary><p>Pode pedir sugestão de cores e ajustes simples. As peças têm design pronto, criado pela Juliana; para saber o que dá para mudar em cada uma, é só perguntar no WhatsApp.</p></details>
+        <details><summary>Como faço para encomendar uma guirlanda com o nome do meu bebê?</summary><p>Chame a Juliana no WhatsApp e conte o nome e o tema que você imagina. As guirlandas de nome são feitas sob encomenda.</p></details>
+        <details><summary>A guirlanda de família pode ter detalhes só da minha família?</summary><p>Sim. É o único trabalho totalmente personalizado: pessoas, pets e detalhes são feitos de acordo com o que você contar. Use o “Monte o seu pedido” acima para começar a conversa.</p></details>
+        <details><summary>Prefiro comprar com mais segurança. Tem como?</summary><p>Tem. As peças prontas estão na Shopee, que protege o pagamento e a entrega. Basta tocar em “Ver na Shopee”.</p></details>
+        <details><summary>Qual o prazo e o valor de uma encomenda?</summary><p>Depende da peça e da fila de encomendas do ateliê. A Juliana combina prazo e valor na conversa pelo WhatsApp, antes de começar.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span class="logo"><img src="assets/logo-horizontal.webp" alt="Artesanatos Juliana — feito à mão com amor" width="1000" height="446" loading="lazy"></span>
+    <div class="channels">
+      <a class="btn btn-shopee btn-sm" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener">Shopee</a>
+      <a class="btn btn-wa btn-sm" href="https://wa.me/5512981172440" target="_blank" rel="noopener">WhatsApp (12) 98117-2440</a>
+      <a class="btn btn-ig btn-sm" href="https://instagram.com/artesanatosjuliana" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <button class="btn btn-ghost btn-sm" id="share" type="button">Indicar para uma amiga</button>
+    <p><small>São José dos Campos – SP · Feito à mão com amor · © <span id="ano">2026</span> Artesanatos Juliana</small></p>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20pe%C3%A7as." target="_blank" rel="noopener" aria-label="Falar com a Juliana no WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>Falar com a Juliana</span></a>
+
+<!-- Foto ampliada -->
+<dialog class="lb" id="lb" aria-label="Foto ampliada">
+  <button class="close" type="button" id="lbClose" aria-label="Fechar">✕</button>
+  <figure>
+    <img id="lbImg" src="" alt="">
+    <figcaption class="info">
+      <h3 id="lbTitle"></h3>
+      <div class="nav"><button type="button" id="lbPrev" aria-label="Foto anterior">‹</button><button type="button" id="lbNext" aria-label="Próxima foto">›</button></div>
+      <a class="btn btn-wa btn-sm" id="lbGo" href="#" target="_blank" rel="noopener"></a>
+    </figcaption>
+  </figure>
+</dialog>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches || location.search.indexOf('static') > -1;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  /* Cabeçalho: sombra ao rolar + menu do celular */
+  var header = $('#header'), nav = $('#nav'), menuBtn = $('#menuBtn');
+  window.addEventListener('scroll', function () { header.classList.toggle('scrolled', window.scrollY > 30); }, { passive: true });
+  function closeMenu() { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); menuBtn.textContent = '☰ Menu'; }
+  menuBtn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.textContent = open ? '✕ Fechar' : '☰ Menu';
+  });
+  $$('#nav a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+
+  /* Destaque do item do menu da seção atual */
+  if ('IntersectionObserver' in window) {
+    var links = $$('#nav a');
+    var spy = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id); });
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    links.forEach(function (a) { var s = $(a.getAttribute('href')); if (s) spy.observe(s); });
+  }
+
+  /* Revelar ao rolar (uma vez, suave) */
+  var rev = $$('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) { rev.forEach(function (el) { el.classList.add('in'); }); }
+  else {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .12 });
+    rev.forEach(function (el) { io.observe(el); });
+  }
+
+  /* Contagem regressiva do Natal */
+  var now = new Date(), y = now.getFullYear();
+  var today = new Date(y, now.getMonth(), now.getDate());
+  var xmas = new Date(y, 11, 25);
+  if (today > xmas) xmas = new Date(y + 1, 11, 25);
+  var days = Math.round((xmas - today) / 86400000);
+  var cd = $('#cdText');
+  if (days === 0) cd.textContent = 'Hoje é Natal! Feliz Natal a todos ♥';
+  else if (days <= 120) cd.innerHTML = 'Faltam <b>' + days + '</b> dias para o Natal. Veja as guirlandas na vitrine';
+
+  /* Números que sobem até o valor final */
+  $('#anos').textContent = y - 2012;
+  function count(el) {
+    var end = parseInt(el.textContent, 10);
+    if (reduce) return;
+    var t0 = null;
+    function step(t) { if (!t0) t0 = t; var p = Math.min((t - t0) / 1300, 1); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); }
+    el.textContent = '0'; requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window) {
+    var cio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { count(e.target); cio.unobserve(e.target); } }); }, { threshold: .6 });
+    $$('[data-count]').forEach(function (el) { cio.observe(el); });
+  }
+
+  /* Filtro da vitrine */
+  var chips = $$('.chip'), cards = $$('#grid .card');
+  function apply(f) {
+    chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c.dataset.filter === f)); });
+    cards.forEach(function (card) {
+      var show = f === 'todos' || card.dataset.cat.split(' ').indexOf(f) > -1;
+      if (show) { card.hidden = false; card.classList.add('fading'); requestAnimationFrame(function () { requestAnimationFrame(function () { card.classList.remove('fading'); }); }); }
+      else card.hidden = true;
+    });
+  }
+  chips.forEach(function (c) { c.addEventListener('click', function () { apply(c.dataset.filter); }); });
+  $$('[data-filter-link]').forEach(function (a) { a.addEventListener('click', function () { apply(a.dataset.filterLink); }); });
+
+  /* Foto ampliada */
+  var lb = $('#lb'), idx = 0;
+  function visible() { return cards.filter(function (c) { return !c.hidden; }); }
+  function show(i) {
+    var list = visible(); if (!list.length) return;
+    idx = (i + list.length) % list.length;
+    var c = list[idx], img = $('img', c), go = $('a.go', c);
+    $('#lbImg').src = img.currentSrc || img.src; $('#lbImg').alt = img.alt;
+    $('#lbTitle').textContent = $('h3', c).textContent;
+    var b = $('#lbGo'); b.href = go.href; b.textContent = go.textContent.replace(' ›', '');
+  }
+  cards.forEach(function (c) {
+    $('.pic', c).addEventListener('click', function () {
+      show(visible().indexOf(c));
+      if (lb.showModal) lb.showModal(); else lb.setAttribute('open', '');
+    });
+  });
+  $('#lbPrev').addEventListener('click', function () { show(idx - 1); });
+  $('#lbNext').addEventListener('click', function () { show(idx + 1); });
+  $('#lbClose').addEventListener('click', function () { lb.close(); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+  document.addEventListener('keydown', function (e) { if (!lb.open) return; if (e.key === 'ArrowLeft') show(idx - 1); if (e.key === 'ArrowRight') show(idx + 1); });
+
+  /* Monte o seu pedido (guirlanda de família) */
+  var st = { adultos: 2, criancas: 1, pets: 0 };
+  function plural(n, s, p) { return n + ' ' + (n === 1 ? s : p); }
+  function build() {
+    var frase = $('#frase').value;
+    var txt = plural(st.adultos, 'adulto', 'adultos') + ', ' + plural(st.criancas, 'criança', 'crianças') + ' e ' + plural(st.pets, 'pet', 'pets');
+    $('#resumo').textContent = 'Sua guirlanda: ' + txt + ' · frase: ' + frase;
+    var msg = 'Olá, Juliana! Quero encomendar uma guirlanda de família.\nPessoas e pets: ' + txt + '.\nFrase: ' + frase + '.\nPosso te contar os detalhes de cada um?';
+    $('#builderBtn').href = 'https://wa.me/5512981172440?text=' + encodeURIComponent(msg);
+  }
+  $$('.stepper button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var k = b.dataset.step; st[k] = Math.max(0, Math.min(8, st[k] + parseInt(b.dataset.d, 10)));
+      $('#' + k).textContent = st[k]; build();
+    });
+  });
+  $('#frase').addEventListener('change', build); build();
+
+  /* Avaliações: setas grandes */
+  var sl = $('#slider');
+  function by(dir) { var w = $('.quote', sl).getBoundingClientRect().width + 20; sl.scrollBy({ left: dir * w, behavior: reduce ? 'auto' : 'smooth' }); }
+  $('#prev').addEventListener('click', function () { by(-1); });
+  $('#next').addEventListener('click', function () { by(1); });
+
+  /* Compartilhar */
+  $('#share').addEventListener('click', function () {
+    var data = { title: 'Artesanatos Juliana', text: 'Olha que lindas as peças de feltro da Juliana!', url: location.href };
+    if (navigator.share) navigator.share(data).catch(function () {});
+    else window.open('https://wa.me/?text=' + encodeURIComponent(data.text + ' ' + data.url), '_blank', 'noopener');
+  });
+  $('#ano').textContent = y;
+})();
+</script>
+</body>
+</html>
