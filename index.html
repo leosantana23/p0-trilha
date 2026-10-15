@@ -251,6 +251,64 @@
     .sign{font:italic 700 1.7rem var(--head);color:var(--rose-dark);margin:6px 0 20px}
     .about .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
 
+
+    /* ================= MODO CELULAR (até 700px): só o essencial ================= */
+    .mobile-only{display:none}
+    @media (max-width:700px){
+      .desk-only{display:none !important}
+      .mobile-only{display:block}
+      .btn.mobile-only{display:inline-flex}
+      body{font-size:17px;line-height:1.6}
+      section{padding:44px 0}
+      .section-head{margin-bottom:26px}
+      .brand img{height:50px}
+      header.scrolled .brand img{height:42px}
+
+      /* topo */
+      .hero{padding:26px 0 70px}
+      .hero .wrap{gap:20px}
+      .hero h1{font-size:2.05rem}
+      .hero p.lead{font-size:1.08rem;margin:14px 0 20px}
+      .countdown{font-size:.9rem;padding:6px 12px;margin-bottom:14px}
+      .channels{flex-direction:column}
+      .channels .btn{width:100%}
+      .hero-art{max-width:230px}
+      .trust{margin-top:-34px}
+      .trust ul{padding:18px 12px}
+
+      /* Shopee */
+      .shopee-sec{margin-top:44px}
+      .shopee-box{padding:28px 20px;gap:16px;border-radius:26px}
+      .shopee-box .btn{width:100%}
+      .shopee-box h2{font-size:1.6rem}
+      .shopee-box p{font-size:1.02rem}
+
+      /* vitrine em carrossel */
+      .grid{columns:auto;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding:4px 2px 14px;margin:0 -16px;padding-inline:16px;scrollbar-width:none}
+      .grid::-webkit-scrollbar{display:none}
+      .card{flex:0 0 76vw;scroll-snap-align:center;margin:0}
+      .card .pic img{max-height:340px}
+      .card p{display:none}
+      .note{font-size:.95rem;padding:12px 14px}
+      .more .btn{width:100%}
+
+      /* guirlanda de família */
+      .family .wrap{gap:20px}
+      .family .pics{max-width:340px;margin:auto}
+
+      /* avaliações */
+      .quote{flex-basis:84vw}
+      .arrows{display:none}
+
+      /* Juliana */
+      .juliana-photo{max-width:250px}
+      .about .btns .btn{width:100%}
+
+      /* rodapé */
+      footer.site{padding:40px 0 96px}
+      footer.site .channels{flex-direction:column;align-items:stretch}
+    }
+
     @media (prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
       .reveal{opacity:1;transform:none;transition:none}
@@ -280,7 +338,7 @@
         <li><a href="#familia">Guirlanda de família</a></li>
         <li><a href="#avaliacoes">Avaliações</a></li>
         <li><a href="#sobre">A Juliana</a></li>
-        <li><a href="#duvidas">Dúvidas</a></li>
+        <li class="desk-only"><a href="#duvidas">Dúvidas</a></li>
       </ul>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">☰ Menu</button>
@@ -297,7 +355,8 @@
       <div>
         <a class="countdown reveal" href="#vitrine" data-filter-link="natal"><span aria-hidden="true">🎄</span><span id="cdText">Natal chegando: guirlandas e pingentes na vitrine</span></a>
         <h1 id="titulo" class="reveal" style="--d:.1s">Tudo para <span class="accent">decorar, encantar</span> e eternizar momentos especiais.</h1>
-        <p class="lead reveal" style="--d:.2s">Peças artesanais em feltro e madeira, feitas à mão com carinho para quartos de bebê, presentes e decoração. Direto do ateliê da Juliana, em São José dos Campos – SP.</p>
+        <p class="lead reveal desk-only" style="--d:.2s">Peças artesanais em feltro e madeira, feitas à mão com carinho para quartos de bebê, presentes e decoração. Direto do ateliê da Juliana, em São José dos Campos – SP.</p>
+        <p class="lead reveal mobile-only" style="--d:.2s">Peças em feltro e madeira, feitas à mão com carinho em São José dos Campos – SP.</p>
         <div class="channels reveal" style="--d:.3s">
           <a class="btn btn-shopee btn-lg" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-shop"/></svg>Ver todos os produtos na Shopee</a>
           <a class="btn btn-wa" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20pe%C3%A7as." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Falar no WhatsApp</a>
@@ -319,8 +378,8 @@
       <ul>
         <li class="reveal"><strong><span data-count id="anos">14</span> anos</strong><span class="t">vendendo artesanato pela internet, desde 2012</span></li>
         <li class="reveal" style="--d:.1s"><strong>+<span data-count>280</span></strong><span class="t">avaliações positivas de clientes</span></li>
-        <li class="reveal" style="--d:.2s"><strong>100% à mão</strong><span class="t">cada peça é criada e costurada pela Juliana</span></li>
-        <li class="reveal" style="--d:.3s"><strong>Bem embalado</strong><span class="t">cuidado do ateliê até a sua porta</span></li>
+        <li class="reveal desk-only" style="--d:.2s"><strong>100% à mão</strong><span class="t">cada peça é criada e costurada pela Juliana</span></li>
+        <li class="reveal desk-only" style="--d:.3s"><strong>Bem embalado</strong><span class="t">cuidado do ateliê até a sua porta</span></li>
       </ul>
     </div>
   </section>
@@ -333,7 +392,7 @@
         <div>
           <h2 id="t-shopee">Todos os nossos produtos estão na Shopee</h2>
           <p>Aqui no site você vê uma seleção das peças. A <b>variedade completa</b> da Juliana, com muito mais modelos, temas e kits, fica na nossa loja da Shopee, com pagamento e entrega protegidos.</p>
-          <div class="tags"><span>Pingentes de Natal</span><span>Guirlandas</span><span>Kits de bebê</span><span>Presépios</span><span>Mobiles</span><span>Lembrancinhas</span><span>e muito mais</span></div>
+          <div class="tags desk-only"><span>Pingentes de Natal</span><span>Guirlandas</span><span>Kits de bebê</span><span>Presépios</span><span>Mobiles</span><span>Lembrancinhas</span><span>e muito mais</span></div>
           <a class="btn btn-white btn-lg" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener"><svg aria-hidden="true" style="color:#EE4D2D"><use href="#i-shop"/></svg>Abrir a loja na Shopee</a>
         </div>
       </div>
@@ -346,10 +405,11 @@
       <div class="section-head reveal">
         <p class="eyebrow">Nossa vitrine</p>
         <h2 id="t-vitrine">Para cada ocasião, uma peça feita com <span class="accent">carinho</span></h2>
-        <p>Esta é uma <b>seleção</b> das peças; o catálogo completo está na Shopee. Toque na foto para ver maior.</p>
+        <p class="desk-only">Esta é uma <b>seleção</b> das peças; o catálogo completo está na Shopee. Toque na foto para ver maior.</p>
+        <p class="mobile-only">Uma seleção das peças. O catálogo completo está na Shopee.</p>
       </div>
 
-      <div class="chips reveal" role="group" aria-label="Filtrar por ocasião">
+      <div class="chips reveal desk-only" role="group" aria-label="Filtrar por ocasião">
         <button class="chip" data-filter="todos" aria-pressed="true">Todos</button>
         <button class="chip" data-filter="natal" aria-pressed="false">🎄 Natal</button>
         <button class="chip" data-filter="bebe" aria-pressed="false">Bebê e maternidade</button>
@@ -362,11 +422,11 @@
           <button class="pic" type="button" aria-label="Ampliar foto: Guirlanda Mamãe e Papai Noel"><img src="assets/natal-mamae-papai.webp" alt="Guirlanda de Natal com Mamãe e Papai Noel e árvore, em feltro" loading="lazy" width="800" height="1067"></button>
           <div class="body"><span class="kicker">Natal</span><h3>Guirlanda Mamãe e Papai Noel</h3><p>Para a porta ou a parede, com árvore, presentes e plaquinha “Feliz Natal”.</p><a class="go" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener">Ver na Shopee ›</a></div>
         </article>
-        <article class="card" data-cat="natal">
+        <article class="card desk-only" data-cat="natal">
           <button class="pic" type="button" aria-label="Ampliar foto: Guirlanda Papai Noel e as cartinhas"><img src="assets/natal-papai-noel.webp" alt="Guirlanda de Natal com Papai Noel, árvore e caixinha de cartas" loading="lazy" width="800" height="1201"></button>
           <div class="body"><span class="kicker">Natal</span><h3>Guirlanda Papai Noel e as cartinhas</h3><p>Bolinhas de poá, árvore enfeitada e o Papai Noel recebendo as cartas.</p><a class="go" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener">Ver na Shopee ›</a></div>
         </article>
-        <article class="card" data-cat="natal">
+        <article class="card desk-only" data-cat="natal">
           <button class="pic" type="button" aria-label="Ampliar foto: Guirlanda Natal Super-Heróis"><img src="assets/natal-herois.webp" alt="Guirlanda Feliz Natal com Papai Noel e super-heróis de gorro" loading="lazy" width="800" height="1067"></button>
           <div class="body"><span class="kicker">Natal</span><h3>Guirlanda Natal Super-Heróis</h3><p>Papai Noel cercado de heróis de gorro. Sucesso entre as crianças.</p><a class="go" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener">Ver na Shopee ›</a></div>
         </article>
@@ -380,7 +440,7 @@
           <button class="pic" type="button" aria-label="Ampliar foto: Guirlanda de nome Toy Story"><img src="assets/guirlanda-heitor.webp" alt="Guirlanda de nome Heitor com tema Toy Story, em feltro" loading="lazy" width="800" height="1067"></button>
           <div class="body"><span class="kicker">Sob encomenda</span><h3>Guirlanda de nome — Toy Story</h3><p>Feita com o nome e o tema do bebê, para a porta da maternidade e o quarto.</p><a class="go" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Quero%20encomendar%20uma%20guirlanda%20com%20o%20nome%20do%20meu%20beb%C3%AA." target="_blank" rel="noopener">Encomendar no WhatsApp ›</a></div>
         </article>
-        <article class="card" data-cat="bebe">
+        <article class="card desk-only" data-cat="bebe">
           <button class="pic" type="button" aria-label="Ampliar foto: Guirlanda e abajur Fazendinha"><img src="assets/guirlanda-george.webp" alt="Guirlanda de nome George com tema fazendinha e abajur combinando" loading="lazy" width="900" height="675"></button>
           <div class="body"><span class="kicker">Sob encomenda</span><h3>Guirlanda e abajur — Fazendinha</h3><p>Dá para combinar a guirlanda com um abajur no mesmo tema.</p><a class="go" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Quero%20encomendar%20uma%20guirlanda%20com%20o%20nome%20do%20meu%20beb%C3%AA." target="_blank" rel="noopener">Encomendar no WhatsApp ›</a></div>
         </article>
@@ -388,11 +448,11 @@
           <button class="pic" type="button" aria-label="Ampliar foto: Guirlanda de nome Menina"><img src="assets/guirlanda-tiffany.webp" alt="Guirlanda de nome Tiffany rosa com bonequinha, borboleta e bichinhos" loading="lazy" width="800" height="945"></button>
           <div class="body"><span class="kicker">Sob encomenda</span><h3>Guirlanda de nome — Menina</h3><p>Cores suaves, bonequinha no centro e bichinhos da fazendinha.</p><a class="go" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Quero%20encomendar%20uma%20guirlanda%20com%20o%20nome%20do%20meu%20beb%C3%AA." target="_blank" rel="noopener">Encomendar no WhatsApp ›</a></div>
         </article>
-        <article class="card" data-cat="bebe">
+        <article class="card desk-only" data-cat="bebe">
           <button class="pic" type="button" aria-label="Ampliar foto: Guirlanda de nome Menino"><img src="assets/guirlanda-joaquim.webp" alt="Guirlanda de nome Joaquim azul com menino de patinete, balões e cachorrinhos" loading="lazy" width="900" height="727"></button>
           <div class="body"><span class="kicker">Sob encomenda</span><h3>Guirlanda de nome — Menino</h3><p>Balões, patinete e os cachorrinhos da família, tudo em feltro.</p><a class="go" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Quero%20encomendar%20uma%20guirlanda%20com%20o%20nome%20do%20meu%20beb%C3%AA." target="_blank" rel="noopener">Encomendar no WhatsApp ›</a></div>
         </article>
-        <article class="card" data-cat="bebe">
+        <article class="card desk-only" data-cat="bebe">
           <button class="pic" type="button" aria-label="Ampliar foto: Guirlanda de nome Fazendinha"><img src="assets/guirlanda-lucas.webp" alt="Guirlanda de nome Lucas azul com fazendeiro e animais" loading="lazy" width="800" height="998"></button>
           <div class="body"><span class="kicker">Sob encomenda</span><h3>Guirlanda de nome — Fazendinha</h3><p>Vaquinhas, ovelha, cavalinho e pintinhos em volta do nome do bebê.</p><a class="go" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Quero%20encomendar%20uma%20guirlanda%20com%20o%20nome%20do%20meu%20beb%C3%AA." target="_blank" rel="noopener">Encomendar no WhatsApp ›</a></div>
         </article>
@@ -400,7 +460,7 @@
           <button class="pic" type="button" aria-label="Ampliar foto: Kit higiene Super-Heróis"><img src="assets/kit-higiene-herois.webp" alt="Kit higiene de madeira branca com bonecos de super-heróis em feltro" loading="lazy" width="900" height="506"></button>
           <div class="body"><span class="kicker">Kit bebê</span><h3>Kit higiene Super-Heróis</h3><p>Caixinhas de madeira com laços de poá e heróis de feltro.</p><a class="go" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener">Ver na Shopee ›</a></div>
         </article>
-        <article class="card" data-cat="bebe presente">
+        <article class="card desk-only" data-cat="bebe presente">
           <button class="pic" type="button" aria-label="Ampliar foto: Naninha Cachorrinho"><img src="assets/naninha-cachorrinho.webp" alt="Naninha de cachorrinho com camiseta de corações coloridos" loading="lazy" width="600" height="1300"></button>
           <div class="body"><span class="kicker">Kit bebê</span><h3>Naninha Cachorrinho</h3><p>Macia, com camiseta de corações. Presente para o primeiro abraço.</p><a class="go" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener">Ver na Shopee ›</a></div>
         </article>
@@ -410,26 +470,27 @@
           <button class="pic" type="button" aria-label="Ampliar foto: Chaveiros Corujinhas"><img src="assets/chaveiros-coruja.webp" alt="Chaveiros de corujinha de feltro em tons de rosa e vermelho, com laço e renda" loading="lazy" width="445" height="445"></button>
           <div class="body"><span class="kicker">Presentinho</span><h3>Chaveiros Corujinhas</h3><p>Com laço, renda e florzinhas. Perfeitos para presentear amigas.</p><a class="go" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener">Ver na Shopee ›</a></div>
         </article>
-        <article class="card" data-cat="presente">
+        <article class="card desk-only" data-cat="presente">
           <button class="pic" type="button" aria-label="Ampliar foto: Chaveirinhos Vaqueiro"><img src="assets/chaveiros-vaqueiro.webp" alt="Chaveiros de feltro com rostinhos de vaqueiro" loading="lazy" width="700" height="1518"></button>
           <div class="body"><span class="kicker">Lembrancinha</span><h3>Chaveirinhos Vaqueiro</h3><p>Ótimos para festas e lembrancinhas de aniversário.</p><a class="go" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener">Ver na Shopee ›</a></div>
         </article>
-        <article class="card" data-cat="presente">
+        <article class="card desk-only" data-cat="presente">
           <button class="pic" type="button" aria-label="Ampliar foto: Terços de feltro"><img src="assets/tercos-feltro.webp" alt="Terços de feltro com santinhos bordados" loading="lazy" width="900" height="700"></button>
           <div class="body"><span class="kicker">Presente religioso</span><h3>Terços de feltro</h3><p>Com santos de feltro e pérolas. Lindos para batizado e primeira comunhão.</p><a class="go" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Gostaria%20de%20saber%20mais%20sobre%20os%20ter%C3%A7os%20de%20feltro." target="_blank" rel="noopener">Perguntar no WhatsApp ›</a></div>
         </article>
-        <article class="card" data-cat="presente">
+        <article class="card desk-only" data-cat="presente">
           <button class="pic" type="button" aria-label="Ampliar foto: Coelhinhos de Páscoa"><img src="assets/coelhos-pascoa.webp" alt="Família de coelhinhos de feltro com cenouras" loading="lazy" width="700" height="1088"></button>
           <div class="body"><span class="kicker">Páscoa</span><h3>Coelhinhos de Páscoa</h3><p>Coelhinhos e cenouras de feltro para enfeitar a casa na Páscoa.</p><a class="go" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Gostaria%20de%20saber%20mais%20sobre%20os%20coelhinhos%20de%20P%C3%A1scoa." target="_blank" rel="noopener">Perguntar no WhatsApp ›</a></div>
         </article>
-        <article class="card" data-cat="presente">
+        <article class="card desk-only" data-cat="presente">
           <button class="pic" type="button" aria-label="Ampliar foto: Jogo da memória de feltro"><img src="assets/jogo-memoria.webp" alt="Jogo da memória de feltro com bichinhos e personagens coloridos" loading="lazy" width="900" height="447"></button>
           <div class="body"><span class="kicker">Brincar e aprender</span><h3>Jogo da memória de feltro</h3><p>Peças macias e coloridas, ótimas para presentear crianças.</p><a class="go" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Gostaria%20de%20saber%20mais%20sobre%20o%20jogo%20da%20mem%C3%B3ria%20de%20feltro." target="_blank" rel="noopener">Perguntar no WhatsApp ›</a></div>
         </article>
       </div>
 
+      <p class="hint mobile-only" style="text-align:center;margin:0 0 14px;color:var(--ink-soft);font-size:.9rem">← deslize para ver mais →</p>
       <p class="note">As guirlandas de nome são feitas sob encomenda, com o nome e o tema do bebê. As demais peças são criações da Juliana com design pronto; dá para pedir <b>sugestão de cores</b> e ajustes simples.</p>
-      <div class="more"><p style="margin:0 0 14px;font-weight:700">Quer ver tudo o que a Juliana faz?</p><a class="btn btn-shopee btn-lg" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-shop"/></svg>Ver todos os produtos na Shopee</a></div>
+      <div class="more"><p class="desk-only" style="margin:0 0 14px;font-weight:700">Quer ver tudo o que a Juliana faz?</p><a class="btn btn-shopee btn-lg" href="https://shopee.com.br/artesanatosjuliana" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-shop"/></svg>Ver todos os produtos na Shopee</a></div>
     </div>
   </section>
 
@@ -438,14 +499,14 @@
     <div class="wrap">
       <div class="pics reveal">
         <img src="assets/familia-bemvindo.webp" alt="Guirlanda de família Bem-vindo, com pai, filha, mãe com bebê e gatinhos em feltro" loading="lazy" width="900" height="838">
-        <img class="p2" src="assets/familia-bemvindos.webp" alt="Detalhe de outra guirlanda de família, com pai, filha e mãe de cabelos escuros" loading="lazy" width="900" height="562">
+        <img class="p2 desk-only" src="assets/familia-bemvindos.webp" alt="Detalhe de outra guirlanda de família, com pai, filha e mãe de cabelos escuros" loading="lazy" width="900" height="562">
       </div>
       <div>
         <p class="eyebrow reveal">A mais especial de todas</p>
         <h2 id="t-familia" class="reveal">Guirlanda de Família: a sua família <span class="accent">em feltro</span></h2>
         <p class="reveal" style="color:var(--ink-soft)">É o único trabalho 100% personalizado da Juliana: cada pessoa, cada pet e cada detalhe são feitos para parecer com a sua família. Um presente que vira lembrança para a porta de casa.</p>
 
-        <form class="builder reveal" id="builder" onsubmit="return false">
+        <form class="builder reveal desk-only" id="builder" onsubmit="return false">
           <h3>Monte o seu pedido</h3>
           <p class="sub">Conte como é a sua família e a gente leva tudo pronto para a conversa no WhatsApp.</p>
           <div class="row"><label for="adultos">Adultos</label><div class="stepper"><button type="button" data-step="adultos" data-d="-1" aria-label="Menos um adulto">−</button><output id="adultos">2</output><button type="button" data-step="adultos" data-d="1" aria-label="Mais um adulto">+</button></div></div>
@@ -456,8 +517,9 @@
           <p class="summary" id="resumo" aria-live="polite"></p>
           <a class="btn btn-wa" id="builderBtn" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enviar para a Juliana</a>
         </form>
+        <a class="btn btn-wa mobile-only reveal" style="margin-top:20px;width:100%" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Quero%20encomendar%20uma%20guirlanda%20de%20fam%C3%ADlia." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Quero minha guirlanda de família</a>
 
-        <ol class="steps">
+        <ol class="steps desk-only">
           <li class="reveal"><div><b>Conte quem faz parte da família</b><span>Cabelo, roupas, cores e o que mais for importante para você.</span></div></li>
           <li class="reveal"><div><b>A Juliana desenha e costura</b><span>Cada bonequinho é feito à mão, com atenção aos detalhes que você passou.</span></div></li>
           <li class="reveal"><div><b>Receba bem embalada</b><span>A guirlanda chega pronta para pendurar. Prazo e valor são combinados na conversa.</span></div></li>
@@ -479,13 +541,13 @@
           <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Gente, que capricho!! Desde o primeiro atendimento à entrega!! Os bonequinhos vieram perfeitos e muito bem feitos. Dá pra ver que tem muito amor envolvido!!</blockquote></div><figcaption><b>Luciana</b> · chaveirinhos super-heróis · 2020</figcaption></figure>
           <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Amei meus chaveirinhos de coruja, muito caprichado e bem embalado. A comunicação e o atendimento foram perfeitos, a Juliana personalizou do jeitinho que eu pedi, muito obrigada.</blockquote></div><figcaption><b>Adriana</b> · chaveiros corujas · 2023</figcaption></figure>
           <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Melhor escolha que eu fiz. Chegou tudo perfeito. Bem embalado e, melhor de tudo, uma perfeição em cada peça.</blockquote></div><figcaption><b>Graziele</b> · pingentes de Natal · 2024</figcaption></figure>
-          <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>A guirlanda é muito bem feita, igual à foto, chegou muito bem embalada, obrigada Juliana.</blockquote></div><figcaption><b>Eliana</b> · guirlanda de Natal · 2020</figcaption></figure>
-          <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>A vendedora foi super atenciosa. O abajur atendeu todas as expectativas de compra, é exatamente como está no anúncio e chegou muito bem embalado. Estou muito satisfeita!</blockquote></div><figcaption><b>Yohana</b> · abajur super-heróis · 2020</figcaption></figure>
-          <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Amei a guirlanda!!! A Ju é muito atenciosa, caprichosa em tudo o que faz. Tenho várias coisas dela e certamente irei comprar mais.</blockquote></div><figcaption><b>Cliente</b> · guirlanda</figcaption></figure>
-          <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Perfeito!! Excelente profissional, cuidadosa, atenciosa e buscou de todas as formas e maneiras atender ao meu pedido.</blockquote></div><figcaption><b>Cliente</b> · pedido personalizado</figcaption></figure>
-          <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Adorei a experiência de compra, profissional muito atenciosa, chegou bem embalada, no prazo. Parabéns pelo capricho. Adorei!</blockquote></div><figcaption><b>Cliente</b> · compra online</figcaption></figure>
-          <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Ficou linda minha guirlanda, do jeito que eu queria!!! Obrigada pela atenção.</blockquote></div><figcaption><b>Cliente</b> · guirlanda personalizada</figcaption></figure>
-          <figure class="quote"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Simplesmente lindo, adorei!!! Riqueza de detalhes.</blockquote></div><figcaption><b>Cliente</b> · compra online</figcaption></figure>
+          <figure class="quote desk-only"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>A guirlanda é muito bem feita, igual à foto, chegou muito bem embalada, obrigada Juliana.</blockquote></div><figcaption><b>Eliana</b> · guirlanda de Natal · 2020</figcaption></figure>
+          <figure class="quote desk-only"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>A vendedora foi super atenciosa. O abajur atendeu todas as expectativas de compra, é exatamente como está no anúncio e chegou muito bem embalado. Estou muito satisfeita!</blockquote></div><figcaption><b>Yohana</b> · abajur super-heróis · 2020</figcaption></figure>
+          <figure class="quote desk-only"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Amei a guirlanda!!! A Ju é muito atenciosa, caprichosa em tudo o que faz. Tenho várias coisas dela e certamente irei comprar mais.</blockquote></div><figcaption><b>Cliente</b> · guirlanda</figcaption></figure>
+          <figure class="quote desk-only"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Perfeito!! Excelente profissional, cuidadosa, atenciosa e buscou de todas as formas e maneiras atender ao meu pedido.</blockquote></div><figcaption><b>Cliente</b> · pedido personalizado</figcaption></figure>
+          <figure class="quote desk-only"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Adorei a experiência de compra, profissional muito atenciosa, chegou bem embalada, no prazo. Parabéns pelo capricho. Adorei!</blockquote></div><figcaption><b>Cliente</b> · compra online</figcaption></figure>
+          <figure class="quote desk-only"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Ficou linda minha guirlanda, do jeito que eu queria!!! Obrigada pela atenção.</blockquote></div><figcaption><b>Cliente</b> · guirlanda personalizada</figcaption></figure>
+          <figure class="quote desk-only"><div><div class="stars" aria-label="5 estrelas">★★★★★</div><blockquote>Simplesmente lindo, adorei!!! Riqueza de detalhes.</blockquote></div><figcaption><b>Cliente</b> · compra online</figcaption></figure>
         </div>
         <div class="arrows"><button type="button" id="prev" aria-label="Avaliação anterior">‹</button><button type="button" id="next" aria-label="Próxima avaliação">›</button></div>
       </div>
@@ -503,10 +565,10 @@
         <p class="eyebrow reveal">Conheça quem faz</p>
         <h2 id="t-sobre" class="reveal">Oi, eu sou a <span class="accent">Juliana</span></h2>
         <p class="reveal">Sou artesã em São José dos Campos – SP. Há mais de dez anos transformo feltro e madeira em peças para quartos de bebê, presentes e decoração, e desde 2012 levo meu trabalho para clientes pela internet.</p>
-        <p class="reveal">Cada peça nasce de um desenho meu e passa pelas minhas mãos, do corte à última costura. Não trabalho com produção em série: cuido de cada detalhe, da embalagem ao atendimento.</p>
+        <p class="reveal desk-only">Cada peça nasce de um desenho meu e passa pelas minhas mãos, do corte à última costura. Não trabalho com produção em série: cuido de cada detalhe, da embalagem ao atendimento.</p>
         <p class="reveal">Muitas clientes chegam por indicação de quem já recebeu uma peça, e voltam para presentear de novo. Se você quer uma guirlanda com a sua família, é comigo mesma que você conversa, direto pelo WhatsApp.</p>
-        <p class="sign reveal">Juliana</p>
-        <ul class="reveal">
+        <p class="sign reveal desk-only">Juliana</p>
+        <ul class="reveal desk-only">
           <li>Peças autorais, desenhadas por mim</li>
           <li>Feltro e madeira, com acabamento à mão</li>
           <li>Atendimento direto, de pessoa para pessoa</li>
@@ -520,7 +582,7 @@
   </section>
 
   <!-- ================= COMO COMPRAR ================= -->
-  <section id="comprar" class="how" aria-labelledby="t-comprar">
+  <section id="comprar" class="how desk-only" aria-labelledby="t-comprar">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Três jeitos de chegar até a gente</p>
@@ -551,7 +613,7 @@
   </section>
 
   <!-- ================= PERGUNTAS ================= -->
-  <section id="duvidas" class="faq" aria-labelledby="t-faq">
+  <section id="duvidas" class="faq desk-only" aria-labelledby="t-faq">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Ficou com dúvida?</p>
@@ -672,7 +734,7 @@
 
   /* Foto ampliada */
   var lb = $('#lb'), idx = 0;
-  function visible() { return cards.filter(function (c) { return !c.hidden; }); }
+  function visible() { return cards.filter(function (c) { return !c.hidden && c.offsetParent !== null; }); }
   function show(i) {
     var list = visible(); if (!list.length) return;
     idx = (i + list.length) % list.length;
