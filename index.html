@@ -205,8 +205,43 @@
   <section id="familia" class="family" aria-labelledby="t-familia">
     <div class="wrap">
       <div class="pics reveal">
-        <p class="hot-hint desk-only" style="margin:0 0 10px">Toque nos pontos para ver o que é personalizado</p>
-        <div class="hotwrap"><img src="assets/familia-bemvindo.webp" alt="Guirlanda de família Bem-vindo, com pai, filha, mãe com bebê e gatinhos em feltro" loading="lazy" decoding="async" width="900" height="838"><button class="hot desk-only" type="button" style="left:50%;top:8%" aria-expanded="false" aria-label="Frase na faixa"><span aria-hidden="true">1</span><span class="tip">Frase na faixa: “Bem-vindos”, o sobrenome da família ou outra que você escolher.</span></button><button class="hot desk-only" type="button" style="left:46%;top:50%" aria-expanded="false" aria-label="Pessoas"><span aria-hidden="true">2</span><span class="tip">Cada pessoa com o cabelo, a roupa e o jeitinho da sua família.</span></button><button class="hot desk-only" type="button" style="left:8%;top:80%" aria-expanded="false" aria-label="Pets"><span aria-hidden="true">3</span><span class="tip">Os pets também entram, do jeito que eles são.</span></button><button class="hot desk-only" type="button" style="left:86%;top:42%" aria-expanded="false" aria-label="Cenário"><span aria-hidden="true">4</span><span class="tip">Detalhes do cenário: casinha de passarinho, corações, cores combinando com a sua casa.</span></button></div>
+        <div class="hot-bar desk-only"><span>Conheça cada detalhe personalizado:</span><button class="hot-chip" type="button" data-i="0" aria-pressed="false"><i>1</i>Frase</button><button class="hot-chip" type="button" data-i="1" aria-pressed="false"><i>2</i>Pessoas</button><button class="hot-chip" type="button" data-i="2" aria-pressed="false"><i>3</i>Pets</button><button class="hot-chip" type="button" data-i="3" aria-pressed="false"><i>4</i>Cenário</button></div>
+        <div class="hotwrap" id="hotwrap">
+          <img src="assets/familia-bemvindo.webp" alt="Guirlanda de família Bem-vindo, com pai, filha, mãe com bebê e gatinhos em feltro" loading="lazy" decoding="async" width="900" height="838">
+          <span class="spot" aria-hidden="true"></span>
+          <div class="hot desk-only" style="left:50%;top:8%;--k:0" data-pos="below" data-align="center">
+            <button class="dot" type="button" aria-expanded="false" aria-controls="tip1" aria-label="Ponto 1 de 4: Frase na faixa">1</button>
+            <div class="tip" id="tip1" role="region" aria-label="Frase na faixa">
+              <b>Frase na faixa</b><p>“Bem-vindos”, o sobrenome da família ou outra frase que você escolher.</p>
+              <button class="tipgo" type="button" data-go="frase">Escolher a frase ↓</button>
+              <div class="tipnav"><button type="button" data-dir="-1" aria-label="Ponto anterior">‹</button><span>1 de 4</span><button type="button" data-dir="1" aria-label="Próximo ponto">›</button></div>
+            </div>
+          </div>
+          <div class="hot desk-only" style="left:46%;top:50%;--k:1" data-pos="above" data-align="center">
+            <button class="dot" type="button" aria-expanded="false" aria-controls="tip2" aria-label="Ponto 2 de 4: Cada pessoa da família">2</button>
+            <div class="tip" id="tip2" role="region" aria-label="Cada pessoa da família">
+              <b>Cada pessoa da família</b><p>Cabelo, roupa e jeitinho de cada um, para parecer com a sua família.</p>
+              <button class="tipgo" type="button" data-go="adultos">Informar as pessoas ↓</button>
+              <div class="tipnav"><button type="button" data-dir="-1" aria-label="Ponto anterior">‹</button><span>2 de 4</span><button type="button" data-dir="1" aria-label="Próximo ponto">›</button></div>
+            </div>
+          </div>
+          <div class="hot desk-only" style="left:8%;top:80%;--k:2" data-pos="above" data-align="left">
+            <button class="dot" type="button" aria-expanded="false" aria-controls="tip3" aria-label="Ponto 3 de 4: Os pets também entram">3</button>
+            <div class="tip" id="tip3" role="region" aria-label="Os pets também entram">
+              <b>Os pets também entram</b><p>Cachorro, gato ou outro bichinho: feito do jeito que ele é.</p>
+              <button class="tipgo" type="button" data-go="pets">Informar os pets ↓</button>
+              <div class="tipnav"><button type="button" data-dir="-1" aria-label="Ponto anterior">‹</button><span>3 de 4</span><button type="button" data-dir="1" aria-label="Próximo ponto">›</button></div>
+            </div>
+          </div>
+          <div class="hot desk-only" style="left:86%;top:42%;--k:3" data-pos="above" data-align="right">
+            <button class="dot" type="button" aria-expanded="false" aria-controls="tip4" aria-label="Ponto 4 de 4: Cenário e cores">4</button>
+            <div class="tip" id="tip4" role="region" aria-label="Cenário e cores">
+              <b>Cenário e cores</b><p>Casinha de passarinho, corações e cores combinando com a sua casa.</p>
+              <a class="tipgo" href="https://wa.me/5512981172440?text=Ol%C3%A1%2C%20Juliana!%20Quero%20conversar%20sobre%20os%20detalhes%20do%20cen%C3%A1rio%20da%20minha%20guirlanda%20de%20fam%C3%ADlia." target="_blank" rel="noopener">Conversar com a Juliana ›</a>
+              <div class="tipnav"><button type="button" data-dir="-1" aria-label="Ponto anterior">‹</button><span>4 de 4</span><button type="button" data-dir="1" aria-label="Próximo ponto">›</button></div>
+            </div>
+          </div>
+        </div>
         <img class="p2 desk-only" src="assets/familia-bemvindos.webp" alt="Detalhe de outra guirlanda de família, com pai, filha e mãe de cabelos escuros" loading="lazy" decoding="async" width="900" height="562">
       </div>
       <div>

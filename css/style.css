@@ -328,15 +328,52 @@ dialog.lb::backdrop{background:rgba(58,38,34,.72)}
 .card.reveal .pic img{clip-path:inset(0 0 100% 0);transform:scale(1.08)}
 .card.reveal.in .pic img{clip-path:inset(0);transform:none;transition:clip-path 1s cubic-bezier(.2,.7,.2,1) calc(var(--d,0s) + .1s),transform 1.2s ease calc(var(--d,0s) + .1s)}
 
-/* guirlanda de família: pontos que explicam o que é personalizado */
+/* guirlanda de família: foto interativa (pontos, foco e visita guiada) */
+.hot-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin:0 0 14px}
+.hot-bar>span{width:100%;text-align:center;font:700 .95rem var(--body);color:var(--ink-soft)}
+.hot-chip{min-height:42px;padding:.2rem 1rem .2rem .35rem;border-radius:999px;border:2px solid var(--rose);background:#fff;color:var(--rose-dark);font:800 .92rem var(--body);cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .25s,color .25s}
+.hot-chip i{width:28px;height:28px;border-radius:50%;background:var(--rose-600);color:#fff;font-style:normal;display:grid;place-items:center;transition:background .25s,color .25s}
+.hot-chip:hover{background:var(--blush)}
+.hot-chip[aria-pressed="true"]{background:var(--rose-600);color:#fff;border-color:var(--rose-600)}
+.hot-chip[aria-pressed="true"] i{background:#fff;color:var(--rose-600)}
+
 .hotwrap{position:relative}
-.hot{position:absolute;width:36px;height:36px;padding:0;border-radius:50%;border:3px solid #fff;background:var(--rose-600);color:#fff;font:800 1rem var(--body);cursor:pointer;transform:translate(-50%,-50%);box-shadow:0 4px 12px rgba(0,0,0,.28);z-index:2}
-.hot::before{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--rose);animation:ping 2.6s ease-out infinite}
-.hot[aria-expanded="true"]::before{animation:none;opacity:0}
+.hotwrap>img{display:block}
+.spot{position:absolute;inset:0;border-radius:var(--radius);pointer-events:none;opacity:0;transition:opacity .45s ease;z-index:0;
+  background:radial-gradient(circle at var(--hx,50%) var(--hy,50%),rgba(74,29,47,0) 0,rgba(74,29,47,0) 70px,rgba(74,29,47,.6) 190px)}
+.hotwrap.focus .spot{opacity:1}
+
+.hot{position:absolute;transform:translate(-50%,-50%);z-index:2}
+.hot.open{z-index:5}
+.dot{position:relative;display:grid;place-items:center;width:40px;height:40px;padding:0;border-radius:50%;border:3px solid #fff;background:var(--rose-600);color:#fff;font:800 1.05rem var(--body);cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.3);transition:transform .3s,background .3s,color .3s}
+.dot::before{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--rose);animation:ping 2.6s ease-out infinite}
+.dot:hover{transform:scale(1.12)}
+.hot.open .dot{background:#fff;color:var(--rose-600);border-color:var(--rose-600);transform:scale(1.15)}
+.hot.open .dot::before{animation:none;inset:-20px;border:2px dashed #fff;opacity:.95;animation:spin 10s linear infinite}
 @keyframes ping{0%{transform:scale(1);opacity:.9}100%{transform:scale(2);opacity:0}}
-.hot .tip{position:absolute;bottom:calc(100% + 12px);left:50%;width:230px;transform:translateX(-50%) translateY(6px);background:#fff;color:var(--ink);font:700 .92rem/1.4 var(--body);padding:11px 14px;border-radius:14px;box-shadow:var(--shadow);text-align:left;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
-.hot[aria-expanded="true"] .tip,.hot:focus-visible .tip{opacity:1;transform:translateX(-50%)}
-.hot-hint{margin:10px 0 0;text-align:center;font-size:.92rem;color:var(--ink-soft)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes bump{40%{transform:scale(1.4)}}
+.hotwrap.wave .dot{animation:bump .7s ease both;animation-delay:calc(var(--k) * .28s)}
+
+.tip{position:absolute;left:50%;bottom:calc(100% + 24px);width:252px;padding:14px 16px 12px;border-radius:18px;background:#fff;text-align:left;box-shadow:0 16px 36px rgba(58,38,34,.32);
+  opacity:0;visibility:hidden;transform:translate(-50%,10px);transition:opacity .28s,transform .28s,visibility .28s}
+.hot[data-pos="below"] .tip{bottom:auto;top:calc(100% + 24px);transform:translate(-50%,-10px)}
+.hot[data-align="left"] .tip{left:-12px;transform:translate(0,10px)}
+.hot[data-align="right"] .tip{left:auto;right:-12px;transform:translate(0,10px)}
+.hot.open .tip{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.hot[data-align="left"].open .tip,.hot[data-align="right"].open .tip{transform:translate(0,0)}
+.tip b{display:block;font:700 1.08rem var(--head);color:var(--rose-dark)}
+.tip p{margin:4px 0 10px;font:600 .93rem/1.45 var(--body);color:var(--ink-soft)}
+.tipgo{display:flex;align-items:center;justify-content:center;width:100%;min-height:42px;margin:0 0 10px;border:0;border-radius:999px;background:var(--rose-600);color:#fff;font:800 .92rem var(--body);text-decoration:none;cursor:pointer}
+.tipgo:hover{background:var(--rose-deep)}
+.tipnav{display:flex;align-items:center;justify-content:space-between;border-top:1px dashed var(--rose-300);padding-top:8px}
+.tipnav span{font:700 .85rem var(--body);color:var(--ink-soft)}
+.tipnav button{width:40px;height:40px;border-radius:50%;border:2px solid var(--rose);background:#fff;color:var(--rose-dark);font:800 1.3rem/1 var(--body);cursor:pointer}
+.tipnav button:hover{background:var(--rose);color:#fff}
+
+/* linha do pedido que acende quando o cliente vem de um ponto da foto */
+.row.flash{animation:flash 1.5s ease}
+@keyframes flash{0%,100%{background:transparent}25%,60%{background:var(--blush)}}
 
 /* passos acendem conforme a rolagem */
 .steps li{opacity:.55;transition:opacity .4s}
@@ -363,8 +400,8 @@ p{text-wrap:pretty}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none;transition:none}
-  .hero-art img,.float,.ticker .track,.hot::before{animation:none}
-  .btn,.card,.way,.card .pic img,.steps li,.section-head h2::after{transition:none}
+  .hero-art img,.float,.ticker .track,.dot::before,.hot.open .dot::before,.hotwrap.wave .dot,.row.flash{animation:none}
+  .btn,.card,.way,.card .pic img,.steps li,.section-head h2::after,.tip,.spot,.dot{transition:none}
   .w{opacity:1;transform:none}
   .section-head h2::after{transform:scaleX(1)}
 }

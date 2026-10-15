@@ -171,18 +171,45 @@
   });
 
   /* ---------- 8. guirlanda de família ---------- */
-  /* pontos clicáveis na foto */
-  var hots = $$('.hot');
-  function closeHots(except) { hots.forEach(function (h) { if (h !== except) h.setAttribute('aria-expanded', 'false'); }); }
-  hots.forEach(function (h) {
-    h.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var open = h.getAttribute('aria-expanded') !== 'true';
-      closeHots(h); h.setAttribute('aria-expanded', String(open));
+  /* foto interativa: pontos, foco com "luz", visita guiada e atalhos para o pedido */
+  var hw = $('#hotwrap'), hots = $$('.hot'), hchips = $$('.hot-chip'), curHot = -1;
+  function openHot(i, focusDot) {
+    curHot = i;
+    hots.forEach(function (h, k) {
+      var on = k === i; h.classList.toggle('open', on);
+      $('.dot', h).setAttribute('aria-expanded', String(on));
     });
+    hchips.forEach(function (c, k) { c.setAttribute('aria-pressed', String(k === i)); });
+    hw.classList.toggle('focus', i > -1);
+    if (i > -1) {
+      hw.style.setProperty('--hx', hots[i].style.left); hw.style.setProperty('--hy', hots[i].style.top);
+      if (focusDot) $('.dot', hots[i]).focus({ preventScroll: true });
+    }
+  }
+  hots.forEach(function (h, k) {
+    $('.dot', h).addEventListener('click', function (e) { e.stopPropagation(); openHot(curHot === k ? -1 : k); });
+    $$('.tipnav button', h).forEach(function (b) {
+      b.addEventListener('click', function (e) { e.stopPropagation(); openHot((k + parseInt(b.dataset.dir, 10) + hots.length) % hots.length, true); });
+    });
+    var go = $('.tipgo[data-go]', h);
+    if (go) go.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var row = $('#' + go.dataset.go).closest('.row'); openHot(-1);
+      row.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      row.classList.remove('flash'); void row.offsetWidth; row.classList.add('flash');
+    });
+    h.addEventListener('click', function (e) { e.stopPropagation(); });
   });
-  document.addEventListener('click', function () { closeHots(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeHots(); });
+  hchips.forEach(function (c, k) { c.addEventListener('click', function (e) { e.stopPropagation(); openHot(curHot === k ? -1 : k); }); });
+  document.addEventListener('click', function () { if (curHot > -1) openHot(-1); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && curHot > -1) openHot(-1); });
+  /* ao chegar na foto, os pontos "acenam" uma única vez */
+  if (!reduce && hasIO && hw) {
+    var wio = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) { hw.classList.add('wave'); setTimeout(function () { hw.classList.remove('wave'); }, 2400); wio.disconnect(); }
+    }, { threshold: .5 });
+    wio.observe(hw);
+  }
 
   /* passos acendem conforme a pessoa rola */
   var steps = $$('.steps li');
