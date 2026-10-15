@@ -127,7 +127,7 @@ nav a.active{background:var(--rose);color:#fff}
 .family .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:start}
 .family .pics{position:sticky;top:110px}
 .family .pics img{border-radius:var(--radius);box-shadow:var(--shadow);width:100%;height:auto}
-.family .pics .p2{width:76%;margin:-56px 0 0 auto;border:6px solid #fff;position:relative}
+.family .pics .p2{width:62%;aspect-ratio:1/1;object-fit:cover;margin:-64px 0 0 auto;border:6px solid #fff;position:relative}
 .builder{background:#fff;border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);margin-top:24px;border:2px solid var(--blush)}
 .builder h3{font-size:1.3rem;margin-bottom:4px}
 .builder .sub{margin:0 0 18px;color:var(--ink-soft);font-size:.98rem}
