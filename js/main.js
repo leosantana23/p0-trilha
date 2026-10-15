@@ -68,6 +68,24 @@
   }
   slideAuto();
 
+  /* avaliações do topo: troca a cada 8 s (tempo de ler com calma); pausa com o mouse, fora da tela ou com a aba escondida */
+  var rqs = $$('.rq'), ri = 0, rtimer = null, proof = $('#proof');
+  function showQuote(i) {
+    ri = (i + rqs.length) % rqs.length;
+    rqs.forEach(function (q, k) { q.classList.toggle('on', k === ri); q.setAttribute('aria-hidden', String(k !== ri)); });
+  }
+  function quoteAuto() {
+    clearInterval(rtimer);
+    if (reduce || rqs.length < 2) return;
+    rtimer = setInterval(function () { if (!document.hidden && !hero.classList.contains('paused')) showQuote(ri + 1); }, 8000);
+  }
+  if (proof) {
+    proof.addEventListener('mouseenter', function () { clearInterval(rtimer); });
+    proof.addEventListener('mouseleave', quoteAuto);
+    proof.addEventListener('touchstart', function () { clearInterval(rtimer); setTimeout(quoteAuto, 12000); }, { passive: true });
+  }
+  quoteAuto();
+
   /* ---------- 3. menu (celular) e destaque da seção atual ---------- */
   var nav = $('#nav'), menuBtn = $('#menuBtn');
   function closeMenu() { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); menuBtn.textContent = '☰ Menu'; }

@@ -442,11 +442,18 @@ p{text-wrap:pretty}
   footer.site{padding-bottom:110px}
 }
 
+
+/* avaliações que se alternam no topo (sem mudar a altura do bloco) */
+.hero-proof .stars{display:block;margin-bottom:2px}
+.rqs{display:grid}
+.rq{grid-area:1/1;margin:0;opacity:0;visibility:hidden;transition:opacity .7s ease,visibility .7s}
+.rq.on{opacity:1;visibility:visible}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none;transition:none}
   .hero-art img,.float,.slide,.ticker .track,.dot::before,.hot.open .dot::before,.hotwrap.wave .dot,.row.flash{animation:none}
-  .btn,.card,.way,.card .pic img,.steps li,.section-head h2::after,.tip,.spot,.dot{transition:none}
+  .rq,.btn,.card,.way,.card .pic img,.steps li,.section-head h2::after,.tip,.spot,.dot{transition:none}
   .w{opacity:1;transform:none}
   .section-head h2::after{transform:scaleX(1)}
 }
